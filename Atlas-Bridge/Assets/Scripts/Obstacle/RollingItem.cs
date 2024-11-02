@@ -5,10 +5,11 @@ public class RollingItem :MonoBehaviour, IInteractable
 {
     //rolling barrel
     public float rollSpeed = 5f;
-    void Interact()
+    public void Interact()
     {
         //if hit the player will die the player
-
+        Debug.Log("get rolling interact");
+        GameManager.Instance.GameOver();
         //make player to to spawn location
 
     }

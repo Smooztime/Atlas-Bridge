@@ -6,7 +6,8 @@ public class Interactor : MonoBehaviour
     {
         if (other.GetComponent<IInteractable>() !=null)
         {
-            other.GetComponent<IInteractable>().Interact();
+            var interactable = other.GetComponent<IInteractable>();
+            interactable.Interact();
         }
     }
 }
