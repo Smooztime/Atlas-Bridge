@@ -6,4 +6,8 @@ public interface IInteractable
     {
         
     }
+    void OnExitInteract()
+    {
+
+    }
 }

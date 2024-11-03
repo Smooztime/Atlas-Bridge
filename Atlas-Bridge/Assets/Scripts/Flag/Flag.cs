@@ -1,18 +1,56 @@
+using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
 
-public class Flag : MonoBehaviour,IInteractable
+public class Flag : MonoBehaviour
 {
-    [SerializeField] private Transform backpackPosition;
-    [SerializeField] private GameObject flagPrefab;
+    [SerializeField] private FlagType flagType;
+    private FlagHolder flagHolder;
+    private bool canBePickedUp = true;
+    private float pickupCooldown = 10.0f; 
 
-    public void Interact()
+    public enum FlagType
     {
-        Debug.Log("flag interact");
-        SetParent();
+        flagRed,
+        flagBlue
     }
-    private void SetParent()
+   
+    public FlagType Type => flagType;
+
+    private void OnTriggerEnter(Collider other)
     {
-        //player pick up flag in back
-        transform.SetParent(backpackPosition);
+        flagHolder = other.GetComponent<FlagHolder>();
+        if (flagHolder != null)
+        {
+            if (canBePickedUp)
+            {
+                FlagBePickedUP();
+                Debug.Log("pickup " +this.name);
+                flagHolder.AddFlag(this);
+            }
+        }
     }
+    private void FlagBePickedUP()
+    {
+        this.transform.SetParent(flagHolder.transform);
+        this.transform.localPosition = new Vector3(0.3f, 0.3f, 0.3f);
+
+    }
+
+    private IEnumerator PickUpCooldown()
+    {
+        yield return new WaitForSeconds(pickupCooldown);
+        canBePickedUp = true;
+    }
+
+    public void FlagFallOnGround()
+    {
+        this.transform.SetParent(null);
+        canBePickedUp = false;
+        StartCoroutine(PickUpCooldown());
+    }
+
 }
