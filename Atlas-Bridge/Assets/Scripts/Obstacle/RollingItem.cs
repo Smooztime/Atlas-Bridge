@@ -1,14 +1,19 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class RollingItem :MonoBehaviour, IInteractable
+public class RollingItem :MonoBehaviour
 {
-    //rolling barrel
-    public void Interact()
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("get rolling interact");
-        //if hit the player will die the player
-        GameManager.Instance.GameOver();
-        //make player to to spawn location
+        if(other.GetComponent<FlagHolder>())
+        {
+            FlagHolder flagHolder = other.gameObject.GetComponent<FlagHolder>();
+            Flag flag =other.gameObject.GetComponentInChildren<Flag>();
+            if (flag != null) 
+            {
+                flag.FlagFallOnGround();
+                flagHolder.RemoveFlag(flag);
+            }
+        }
     }
 }
