@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 6
   RotateSpeed: 192.2
-  SpawnTime: 3
+  PlayerForce: 2.5

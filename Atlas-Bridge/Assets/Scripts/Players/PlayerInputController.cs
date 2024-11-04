@@ -8,6 +8,8 @@ public class PlayerInputController : MonoBehaviour
 
     private PlayerController _playerController;
     private InputActionMap playerCtrl;
+
+    public string MapName => mapName;
     
     private void Awake()
     {
