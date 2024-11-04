@@ -42,7 +42,7 @@ public class BaseTower : MonoBehaviour
                         SetFlagPosition(flag.gameObject);
                         removeFlag = flag;
                         player.RemoveFlag(removeFlag);
-                        LightBlueTower(blue);
+                        LightBlueTower(blue, player);
                         break; 
                     }
                 }
@@ -58,7 +58,7 @@ public class BaseTower : MonoBehaviour
                         SetFlagPosition(flag.gameObject);
                         removeFlag =flag;
                         player.RemoveFlag(removeFlag);
-                        LightBlueTower(red);
+                        LightBlueTower(red,player);
                         break;
                     }
                 }
@@ -71,10 +71,12 @@ public class BaseTower : MonoBehaviour
         flagObject.transform.SetParent(this.gameObject.transform);
         flagObject.transform.position = _towerFlagPosition.position;
     }
-    private void LightBlueTower(Material value)
+    private void LightBlueTower(Material value,FlagHolder flagHolder)
     {
         Renderer renderer = gameObject.GetComponent<Renderer>();
         renderer.material = value;
+        GameManager.Instance.WinHappen(flagHolder);
+
     }
 
 }

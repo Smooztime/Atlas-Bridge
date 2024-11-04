@@ -18,13 +18,13 @@ public class FlagHolder : MonoBehaviour
     public void AddFlag(Flag flag)
     {
         flagsHolding.Add(flag);
-        Debug.Log("hold flag:" + flagsHolding.Count);
+       // Debug.Log("AddFlag hold flag:" + flagsHolding.Count);
         isHoldingFlag = true;
     }
     public void RemoveFlag(Flag flag)
     {
         flagsHolding.Remove(flag);
-        Debug.Log("RemoveFlag hold flag:" + flagsHolding.Count);
+       // Debug.Log("RemoveFlag hold flag:" + flagsHolding.Count);
         
     }
    
