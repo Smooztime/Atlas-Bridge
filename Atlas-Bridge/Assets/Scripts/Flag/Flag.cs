@@ -10,14 +10,14 @@ public class Flag : MonoBehaviour
     [SerializeField] private FlagType flagType;
     private FlagHolder flagHolder;
     private bool canBePickedUp = true;
-    private float pickupCooldown = 10.0f; 
+    [SerializeField] private float pickupCooldown = 3f; 
 
     public enum FlagType
     {
         flagRed,
         flagBlue
     }
-   
+
     public FlagType Type => flagType;
 
     private void OnTriggerEnter(Collider other)
