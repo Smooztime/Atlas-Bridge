@@ -1,18 +1,16 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class RollingItem :MonoBehaviour
+public class RollingItem :Obstacles, IInteractable
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<FlagHolder>())
+        if (other.gameObject.GetComponent<PlayerController>())
         {
-            FlagHolder flagHolder = other.gameObject.GetComponent<FlagHolder>();
-            Flag flag =other.gameObject.GetComponentInChildren<Flag>();
-            if (flag != null) 
+            if (other.gameObject.GetComponent<PlayerController>()._isControllerActive)
             {
-                flag.FlagFallOnGround();
-                flagHolder.RemoveFlag(flag);
+                Debug.Log("Rolling Star");
+                other.gameObject.GetComponent<KnockBack>().KnockBackFromStuffs(other.transform, obstaclesSO.ObstacleForce);
             }
         }
     }

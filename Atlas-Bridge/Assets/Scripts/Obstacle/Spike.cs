@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class Spike : MonoBehaviour,IInteractable
+public class Spike : Obstacles
 {
-    public void Interact()
+    private void OnTriggerEnter(Collider other)
     {
-        SpikeDiePlayer();
-
-    }
-
-    private void SpikeDiePlayer()
-    {
-        Debug.Log("spikes die the player");
-        //play die animation give spawn location
+        if(other.gameObject.GetComponent<PlayerController>())
+        {
+            if(other.gameObject.GetComponent<PlayerController>()._isControllerActive)
+            {
+                Debug.Log("Spike made holes on your body");
+                other.gameObject.GetComponent<KnockBack>().KnockBackFromStuffs(other.transform, obstaclesSO.ObstacleForce);
+            }
+        }
     }
 }

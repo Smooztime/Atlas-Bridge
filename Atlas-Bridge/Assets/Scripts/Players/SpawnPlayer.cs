@@ -5,12 +5,16 @@ public class SpawnPlayer : MonoBehaviour
 {
     [SerializeField] private Transform spawnPos;
     private PlayerController _controller;
+    private FlagHolder _flagHolder;
+    private Flag _flag;
     private Collider[] _collider;
 
     private void Awake()
     {
         _controller = GetComponent<PlayerController>();
         _collider = GetComponents<Collider>();
+        _flagHolder = GetComponent<FlagHolder>();
+        _flag = GetComponentInChildren<Flag>();
     }
     public void PlayerDead()
     {
@@ -20,6 +24,11 @@ public class SpawnPlayer : MonoBehaviour
 
     private IEnumerator PlayerRespwan()
     {
+        if(_flag != null)
+        {
+            _flag.FlagFallOnGround();
+            _flagHolder.RemoveFlag(_flag);
+        }
         yield return new WaitForSeconds(1);
         foreach (Collider collider in _collider)
         {

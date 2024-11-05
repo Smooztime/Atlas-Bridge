@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 3776560201948173641}
   - component: {fileID: 4220762600802739562}
   - component: {fileID: 8234619910797638130}
+  - component: {fileID: -7164719243951937722}
   - component: {fileID: 3497749094203982218}
   m_Layer: 0
   m_Name: FlagRed
@@ -196,6 +197,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-7164719243951937722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262623360208455140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa92001f1ba482409a735391caf3fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagType: 0
 --- !u!65 &3497749094203982218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -211,7 +225,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

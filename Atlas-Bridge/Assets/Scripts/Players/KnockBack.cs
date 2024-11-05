@@ -50,6 +50,13 @@ public class KnockBack : MonoBehaviour
         }
     }
 
+    public void KnockBackFromStuffs(Transform obstacleTransform, float obstacleForce)
+    {
+        Vector3 objDirection = (obstacleTransform.transform.position - transform.position).normalized;
+        _controller.RB.AddForce(objDirection * _controller.RB.linearVelocity.normalized.magnitude * obstacleForce, ForceMode.Impulse);
+        _spawnPlayer.PlayerDead();
+    }
+
     private void OnTriggerEnter(Collider collision)
     {
        if(collision.gameObject.GetComponent<PlayerController>())
