@@ -13,6 +13,7 @@ public class SpawnManager : MonoBehaviour
     private GameObject barrelObject;
     private List<GameObject> barrels;
 
+    [Header("bomb spawn")]
     [Header("rolling barrel move")]
     public float rollSpeed = 5f;
 
@@ -23,7 +24,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        SpawnBarrel();
+       // SpawnBarrel();
     }
 
     private void SpawnBarrel()
@@ -52,7 +53,10 @@ public class SpawnManager : MonoBehaviour
             }
         }
     }
+    private void SpawnBomb()
+    {
 
+    }
     void FixedUpdate()
     {
         // Update the spawn timer
