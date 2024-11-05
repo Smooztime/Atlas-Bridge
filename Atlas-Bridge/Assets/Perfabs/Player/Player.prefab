@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: 1.13
-  viewAngle: 60
+  viewAngle: 45
   viewSpectrumIterator: 1
 --- !u!114 &7648106778397785194
 MonoBehaviour:
@@ -335,7 +335,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5561468063739561786}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d748d5a76d527a34596642159ea5297b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

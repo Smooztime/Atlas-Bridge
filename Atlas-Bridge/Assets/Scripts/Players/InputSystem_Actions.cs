@@ -24,7 +24,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     ""name"": ""InputSystem_Actions"",
     ""maps"": [
         {
-            ""name"": ""Player_1"",
+            ""name"": ""Red"",
             ""id"": ""111b32bd-fa7b-4470-86a7-b96d2ea9f700"",
             ""actions"": [
                 {
@@ -63,7 +63,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Player_2"",
+            ""name"": ""Blue"",
             ""id"": ""b910d6aa-94b3-40f8-9166-9ed707603a3f"",
             ""actions"": [
                 {
@@ -165,18 +165,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Player_1
-        m_Player_1 = asset.FindActionMap("Player_1", throwIfNotFound: true);
-        m_Player_1_Movement = m_Player_1.FindAction("Movement", throwIfNotFound: true);
-        // Player_2
-        m_Player_2 = asset.FindActionMap("Player_2", throwIfNotFound: true);
-        m_Player_2_Movement = m_Player_2.FindAction("Movement", throwIfNotFound: true);
+        // Red
+        m_Red = asset.FindActionMap("Red", throwIfNotFound: true);
+        m_Red_Movement = m_Red.FindAction("Movement", throwIfNotFound: true);
+        // Blue
+        m_Blue = asset.FindActionMap("Blue", throwIfNotFound: true);
+        m_Blue_Movement = m_Blue.FindAction("Movement", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
     {
-        UnityEngine.Debug.Assert(!m_Player_1.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Player_1.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_Player_2.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Player_2.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Red.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Red.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Blue.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Blue.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -235,97 +235,97 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player_1
-    private readonly InputActionMap m_Player_1;
-    private List<IPlayer_1Actions> m_Player_1ActionsCallbackInterfaces = new List<IPlayer_1Actions>();
-    private readonly InputAction m_Player_1_Movement;
-    public struct Player_1Actions
+    // Red
+    private readonly InputActionMap m_Red;
+    private List<IRedActions> m_RedActionsCallbackInterfaces = new List<IRedActions>();
+    private readonly InputAction m_Red_Movement;
+    public struct RedActions
     {
         private @InputSystem_Actions m_Wrapper;
-        public Player_1Actions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Player_1_Movement;
-        public InputActionMap Get() { return m_Wrapper.m_Player_1; }
+        public RedActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Red_Movement;
+        public InputActionMap Get() { return m_Wrapper.m_Red; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(Player_1Actions set) { return set.Get(); }
-        public void AddCallbacks(IPlayer_1Actions instance)
+        public static implicit operator InputActionMap(RedActions set) { return set.Get(); }
+        public void AddCallbacks(IRedActions instance)
         {
-            if (instance == null || m_Wrapper.m_Player_1ActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_Player_1ActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_RedActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_RedActionsCallbackInterfaces.Add(instance);
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
         }
 
-        private void UnregisterCallbacks(IPlayer_1Actions instance)
+        private void UnregisterCallbacks(IRedActions instance)
         {
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
         }
 
-        public void RemoveCallbacks(IPlayer_1Actions instance)
+        public void RemoveCallbacks(IRedActions instance)
         {
-            if (m_Wrapper.m_Player_1ActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_RedActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayer_1Actions instance)
+        public void SetCallbacks(IRedActions instance)
         {
-            foreach (var item in m_Wrapper.m_Player_1ActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_RedActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_Player_1ActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_RedActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public Player_1Actions @Player_1 => new Player_1Actions(this);
+    public RedActions @Red => new RedActions(this);
 
-    // Player_2
-    private readonly InputActionMap m_Player_2;
-    private List<IPlayer_2Actions> m_Player_2ActionsCallbackInterfaces = new List<IPlayer_2Actions>();
-    private readonly InputAction m_Player_2_Movement;
-    public struct Player_2Actions
+    // Blue
+    private readonly InputActionMap m_Blue;
+    private List<IBlueActions> m_BlueActionsCallbackInterfaces = new List<IBlueActions>();
+    private readonly InputAction m_Blue_Movement;
+    public struct BlueActions
     {
         private @InputSystem_Actions m_Wrapper;
-        public Player_2Actions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Player_2_Movement;
-        public InputActionMap Get() { return m_Wrapper.m_Player_2; }
+        public BlueActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Blue_Movement;
+        public InputActionMap Get() { return m_Wrapper.m_Blue; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(Player_2Actions set) { return set.Get(); }
-        public void AddCallbacks(IPlayer_2Actions instance)
+        public static implicit operator InputActionMap(BlueActions set) { return set.Get(); }
+        public void AddCallbacks(IBlueActions instance)
         {
-            if (instance == null || m_Wrapper.m_Player_2ActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_Player_2ActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_BlueActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_BlueActionsCallbackInterfaces.Add(instance);
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
         }
 
-        private void UnregisterCallbacks(IPlayer_2Actions instance)
+        private void UnregisterCallbacks(IBlueActions instance)
         {
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
         }
 
-        public void RemoveCallbacks(IPlayer_2Actions instance)
+        public void RemoveCallbacks(IBlueActions instance)
         {
-            if (m_Wrapper.m_Player_2ActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_BlueActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayer_2Actions instance)
+        public void SetCallbacks(IBlueActions instance)
         {
-            foreach (var item in m_Wrapper.m_Player_2ActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_BlueActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_Player_2ActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_BlueActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public Player_2Actions @Player_2 => new Player_2Actions(this);
+    public BlueActions @Blue => new BlueActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -371,11 +371,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_XRSchemeIndex];
         }
     }
-    public interface IPlayer_1Actions
+    public interface IRedActions
     {
         void OnMovement(InputAction.CallbackContext context);
     }
-    public interface IPlayer_2Actions
+    public interface IBlueActions
     {
         void OnMovement(InputAction.CallbackContext context);
     }

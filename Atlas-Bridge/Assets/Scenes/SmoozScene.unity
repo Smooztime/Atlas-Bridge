@@ -248,11 +248,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1164021215720645513, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
       propertyPath: mapName
-      value: Player_2
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 5561468063739561786, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
       propertyPath: m_Name
-      value: Player_2
+      value: Blue_Player
       objectReference: {fileID: 0}
     - target: {fileID: 7351540920760205816, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
       propertyPath: playerForce
@@ -794,11 +794,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1164021215720645513, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
       propertyPath: mapName
-      value: Player_1
+      value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 5561468063739561786, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
       propertyPath: m_Name
-      value: Player_1
+      value: Red_Player
       objectReference: {fileID: 0}
     - target: {fileID: 7351540920760205816, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
       propertyPath: playerForce

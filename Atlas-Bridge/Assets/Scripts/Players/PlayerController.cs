@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.angularVelocity = Vector3.zero;
             rb.linearVelocity = transform.forward * playerState.MovementSpeed;
-            rb.linearVelocity.Normalize();
         }
     }
 
