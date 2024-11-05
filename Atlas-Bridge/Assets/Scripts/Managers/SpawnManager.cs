@@ -22,11 +22,6 @@ public class SpawnManager : MonoBehaviour
         barrels = new List<GameObject>();
     }
 
-    private void Start()
-    {
-       // SpawnBarrel();
-    }
-
     private void SpawnBarrel()
     {
         barrelObject = Instantiate(rollBarrelPerfab, barrelSpawnTransform.position,Quaternion.identity);
@@ -53,10 +48,7 @@ public class SpawnManager : MonoBehaviour
             }
         }
     }
-    private void SpawnBomb()
-    {
 
-    }
     void FixedUpdate()
     {
         // Update the spawn timer
