@@ -9,12 +9,26 @@ public class FlagHolder : MonoBehaviour
     static public bool isHoldingFlag = false;
     static public int CountToHold = 0;
     [SerializeField] public FlagHolderType flagHolderType;
-    
+    public string playerName;
+
+
     public enum FlagHolderType
     {
         redHolder,
         blueHolder
     }
+    private void Start()
+    {
+        if (this.flagHolderType == FlagHolderType.redHolder)
+        {
+            playerName = "Blue Player";
+        }
+        else 
+        {
+            playerName = "Red Player";
+        } 
+    }
+
     public void AddFlag(Flag flag)
     {
         flagsHolding.Add(flag);
