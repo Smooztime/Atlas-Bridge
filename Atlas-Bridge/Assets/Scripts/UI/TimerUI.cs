@@ -13,10 +13,17 @@ public class Timer : MonoBehaviour
     }
     private void Update()
     {
-        if (timeRemaining > 0)
+        const float epsilon = 0.01f;
+
+        if (timeRemaining > epsilon)
         {
-            timeRemaining-=Time.deltaTime;
+            timeRemaining -= Time.deltaTime;
             UpdateTimeDisplay();
+        }
+        else if (timeRemaining > 0)
+        {
+            timeRemaining = 0f;
+            GameManager.Instance.CheckBlockNumber();
         }
     }
     private void UpdateTimeDisplay()
