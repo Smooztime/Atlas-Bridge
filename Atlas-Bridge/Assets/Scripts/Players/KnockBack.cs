@@ -23,7 +23,6 @@ public class KnockBack : MonoBehaviour
     private void FixedUpdate()
     {
         Detect();
-        Debug.Log(_controller.RB.linearVelocity.normalized.magnitude);
     }
 
     private void Detect()
@@ -52,7 +51,8 @@ public class KnockBack : MonoBehaviour
 
     public void KnockBackFromStuffs(Transform obstacleTransform, float obstacleForce)
     {
-        Vector3 objDirection = (obstacleTransform.transform.position - transform.position).normalized;
+        _controller._isKnockBack = true;
+        Vector3 objDirection = (transform.position - obstacleTransform.transform.position).normalized;
         _controller.RB.AddForce(objDirection * _controller.RB.linearVelocity.normalized.magnitude * obstacleForce, ForceMode.Impulse);
         _spawnPlayer.PlayerDead();
     }
@@ -64,11 +64,13 @@ public class KnockBack : MonoBehaviour
             var opponentMapName = collision.gameObject.GetComponent<PlayerInputController>().MapName;
             var opponentCtrl = collision.gameObject.GetComponent<PlayerController>();
             var opponentSpawn = collision.gameObject.GetComponent<SpawnPlayer>();
+            var opponentKnockBack = collision.gameObject.GetComponent<KnockBack>();
 
             if (_isDetect == true && opponentMapName != _input.MapName && opponentCtrl._isControllerActive)
             {
                 if (_controller.RB.linearVelocity.normalized.magnitude > opponentCtrl.RB.linearVelocity.normalized.magnitude)
                 {
+                    opponentCtrl._isKnockBack = true;
                     Debug.Log(_input.MapName + "is POWERFUL!!");
                     Vector3 OpponentDirection = (collision.transform.position - transform.position).normalized;
                     opponentCtrl.RB.AddForce(OpponentDirection * forceSpeed * _controller.PlayerState.PlayerForce, ForceMode.Impulse);
@@ -77,6 +79,7 @@ public class KnockBack : MonoBehaviour
                 }
                 else if (_controller.RB.linearVelocity.normalized.magnitude == opponentCtrl.RB.linearVelocity.normalized.magnitude)
                 {
+                    opponentCtrl._isKnockBack = true;
                     Debug.Log("We are kissing for each other");
                     Vector3 OpponentDirection = (collision.transform.position - transform.position).normalized;
                     opponentCtrl.RB.AddForce(OpponentDirection * forceSpeed * _controller.PlayerState.PlayerForce, ForceMode.Impulse);

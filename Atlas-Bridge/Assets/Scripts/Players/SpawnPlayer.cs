@@ -6,7 +6,7 @@ public class SpawnPlayer : MonoBehaviour
     [SerializeField] private Transform spawnPos;
     private PlayerController _controller;
     private FlagHolder _flagHolder;
-    private Flag _flag;
+    private Flag[] _flag;
     private Collider[] _collider;
 
     private void Awake()
@@ -14,7 +14,6 @@ public class SpawnPlayer : MonoBehaviour
         _controller = GetComponent<PlayerController>();
         _collider = GetComponents<Collider>();
         _flagHolder = GetComponent<FlagHolder>();
-        _flag = GetComponentInChildren<Flag>();
     }
     public void PlayerDead()
     {
@@ -24,19 +23,28 @@ public class SpawnPlayer : MonoBehaviour
 
     private IEnumerator PlayerRespwan()
     {
-        if(_flag != null)
-        {
-            _flag.FlagFallOnGround();
-            _flagHolder.RemoveFlag(_flag);
-        }
         yield return new WaitForSeconds(1);
+
+        _flag = GetComponentsInChildren<Flag>();
+        foreach (Flag flag in _flag)
+        {
+            if (_flag != null)
+            {
+                Debug.Log("drop");
+                flag.FlagFallOnGround();
+                _flagHolder.RemoveFlag(flag);
+            }
+        }
+
         foreach (Collider collider in _collider)
         {
             collider.enabled = false;
         }
         yield return new WaitForSeconds(3);
+
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         yield return new WaitForSeconds(2);
+
         foreach (Collider collider in _collider)
         {
             collider.enabled = true;
@@ -45,5 +53,6 @@ public class SpawnPlayer : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
         
         _controller._isControllerActive = true;
+        _controller._isKnockBack = false;
     }
 }

@@ -9,7 +9,7 @@ public class Spike : Obstacles
             if(other.gameObject.GetComponent<PlayerController>()._isControllerActive)
             {
                 Debug.Log("Spike made holes on your body");
-                other.gameObject.GetComponent<KnockBack>().KnockBackFromStuffs(other.transform, obstaclesSO.ObstacleForce);
+                other.gameObject.GetComponent<KnockBack>().KnockBackFromStuffs(this.gameObject.transform, obstaclesSO.ObstacleForce);
             }
         }
     }
