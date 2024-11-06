@@ -13,17 +13,13 @@ public class SpawnManager : MonoBehaviour
     private GameObject barrelObject;
     private List<GameObject> barrels;
 
+    [Header("bomb spawn")]
     [Header("rolling barrel move")]
     public float rollSpeed = 5f;
 
     private void Awake()
     {
         barrels = new List<GameObject>();
-    }
-
-    private void Start()
-    {
-        SpawnBarrel();
     }
 
     private void SpawnBarrel()
