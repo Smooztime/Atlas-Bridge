@@ -1,11 +1,5 @@
-using NUnit.Framework;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 
 public class Flag : MonoBehaviour
 {
@@ -26,7 +20,7 @@ public class Flag : MonoBehaviour
     private void Start()
     {
         //store the rotate at beginnings
-        originalRotation =this.transform;
+        originalRotation = this.transform;
     }
     public enum FlagType
     {
@@ -38,15 +32,18 @@ public class Flag : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        bool _isKnockBack = other.GetComponent<PlayerController>()._isKnockBack;
-        flagHolder = other.GetComponent<FlagHolder>();
-        if (flagHolder != null && !_isPickedUp && _isKnockBack == false)
+        if(other.GetComponent<FlagHolder>())
         {
-            if (canBePickedUp)
+            bool _isKnockBack = other.GetComponent<PlayerController>()._isKnockBack;
+            flagHolder = other.GetComponent<FlagHolder>();
+            if (flagHolder != null && !_isPickedUp && _isKnockBack == false)
             {
-                FlagBePickedUP();
-                Debug.Log("pickup " +this.name);
-                flagHolder.AddFlag(this);
+                if (canBePickedUp)
+                {
+                    FlagBePickedUP();
+                    Debug.Log("pickup " + this.name);
+                    flagHolder.AddFlag(this);
+                }
             }
         }
     }
@@ -62,7 +59,7 @@ public class Flag : MonoBehaviour
         {
             this.transform.localRotation = Quaternion.Euler(45f, 90f, 0f);
         }
-        else if(flagHolder.flagsHolding.Count == 1)
+        else if (flagHolder.flagsHolding.Count == 1)
         {
             this.transform.localRotation = Quaternion.Euler(45f, -90f, 0f);
         }
@@ -81,7 +78,7 @@ public class Flag : MonoBehaviour
         rb.freezeRotation = true;
         rb.isKinematic = false;
         rb.detectCollisions = true;
-        
+
         this.transform.SetParent(null);
         if (flagHolder.flagsHolding.Count == 2)
         {
