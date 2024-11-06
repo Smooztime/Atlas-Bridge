@@ -35,6 +35,7 @@ public class Block : MonoBehaviour,IInteractable
                     render.material = blue;
                     isBlue = true;
                     GameManager.Instance.RemoveRedBlock(this);
+                   
                 }
                 else
                 {
