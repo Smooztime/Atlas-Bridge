@@ -36,7 +36,7 @@ public class Flag : MonoBehaviour
             if (canBePickedUp)
             {
                 FlagBePickedUP();
-                Debug.Log("pickup " +this.name);
+                //Debug.Log("pickup " +this.name);
                 flagHolder.AddFlag(this);
             }
         }

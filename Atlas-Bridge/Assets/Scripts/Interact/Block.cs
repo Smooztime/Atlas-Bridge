@@ -34,14 +34,14 @@ public class Block : MonoBehaviour,IInteractable
                     GameManager.Instance.blueBlocks.Add(this);
                     render.material = blue;
                     isBlue = true;
-                    GameManager.Instance.RemoveRedBlock(this);
-                   
+                    GameManager.Instance.RemoveRedBlock(this); 
                 }
                 else
                 {
                     render.material = blue;
                     isBlue = true;
                     GameManager.Instance.blueBlocks.Add(this);
+                    Debug.Log("blue" + GameManager.Instance.blueBlocks.Count);
                 }
             }
             else if(player.flagHolderType == FlagHolder.FlagHolderType.redHolder)
@@ -65,10 +65,5 @@ public class Block : MonoBehaviour,IInteractable
                 }
             }
         }
-    }
-    public void Interact()
-    {
-        //light the block with player color
-       // Debug.Log("lighet on now");
     }
 }

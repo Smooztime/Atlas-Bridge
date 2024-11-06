@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 20662743}
   - component: {fileID: 20662742}
   m_Layer: 5
-  m_Name: PlayerBlue (2)
+  m_Name: BlueFlagImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7fa985bf1856e8e47bdc012c0f94b33a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 110989345}
   - component: {fileID: 110989344}
   m_Layer: 5
-  m_Name: PlayerBlue (1)
+  m_Name: RedFlagImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 43792dd7ca9f9c44687f79df0aa29baf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -682,6 +682,34 @@ PrefabInstance:
       propertyPath: flagBackPosition
       value: 
       objectReference: {fileID: 1978027352}
+    - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: flagsHolding.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: flagImageSlot.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: 'flagImageSlot.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1075035072}
+    - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: 'flagImageSlot.Array.data[1]'
+      value: 
+      objectReference: {fileID: 110989342}
+    - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: blueFlagImageSlot.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: 'blueFlagImageSlot.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1075035072}
+    - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: 'blueFlagImageSlot.Array.data[1]'
+      value: 
+      objectReference: {fileID: 110989342}
     - target: {fileID: 5561468063739561786, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -889,6 +917,18 @@ PrefabInstance:
       propertyPath: flagBackPosition
       value: 
       objectReference: {fileID: 344574054}
+    - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: flagImageSlot.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: 'flagImageSlot.Array.data[0]'
+      value: 
+      objectReference: {fileID: 20662740}
+    - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: 'flagImageSlot.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1446498721}
     - target: {fileID: 5561468063739561786, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -1231,7 +1271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 561497340}
   m_Layer: 0
-  m_Name: Menus
+  m_Name: Menues
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1938,7 +1978,7 @@ GameObject:
   - component: {fileID: 1075035075}
   - component: {fileID: 1075035074}
   m_Layer: 5
-  m_Name: PlayerBlue (2)
+  m_Name: BlueFlagImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1983,7 +2023,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7fa985bf1856e8e47bdc012c0f94b33a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2153,7 +2193,7 @@ GameObject:
   - component: {fileID: 1294721460}
   - component: {fileID: 1294721459}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BlockNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2469,7 +2509,7 @@ GameObject:
   - component: {fileID: 1446498724}
   - component: {fileID: 1446498723}
   m_Layer: 5
-  m_Name: PlayerBlue (1)
+  m_Name: RedFlagImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2514,7 +2554,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 43792dd7ca9f9c44687f79df0aa29baf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2649,7 +2689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerObject: {fileID: 1452398705}
   timer: {fileID: 701269828}
-  timeRemaining: 20
+  timeRemaining: 70
 --- !u!1 &1519463759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2847,7 +2887,7 @@ GameObject:
   - component: {fileID: 1632364160}
   - component: {fileID: 1632364159}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BlockNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
