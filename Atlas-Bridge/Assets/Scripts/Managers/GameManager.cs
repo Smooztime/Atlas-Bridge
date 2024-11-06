@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     [Header("Win set up 1 situation")]
     [SerializeField] GameObject winMenu;
-    [SerializeField] string winnerName;
+    [SerializeField] string redPlayerName;
+    [SerializeField] string bluePlayerName;
+    private string winnerName;
     [SerializeField]  TMP_Text winnerNameTMP;
 
     [Header("Win set up 2 situation")]
@@ -23,9 +25,11 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            Debug.Log("GameManagerDontDestroyOnLoad: " + gameObject.GetInstanceID());
         }
-        else 
-        { 
+        else
+        {
+            Debug.Log("GameManager: " + gameObject.GetInstanceID());
             Destroy(gameObject);
         }
     }
@@ -33,13 +37,15 @@ public class GameManager : MonoBehaviour
     {
         winnerName = "";
         winMenu.SetActive(false);
+
+        redBlocks.Clear();
+        blueBlocks.Clear();
     }
+
     public void GameOver()
     {
         Debug.Log("game over");
-      
     }
-   
     public void WinHappen(FlagHolder player)
     {
         //Debug.Log(player+"win");
@@ -49,22 +55,59 @@ public class GameManager : MonoBehaviour
     }
     public void WinAccordingBlocks(string name)
     {
+        
         Debug.Log("name" + name);
-        if (name == "")
+        if (winnerNameTMP != null)
         {
-            winnerNameTMP.text = "The game ends in a draw!";
+            if (name == "")
+            {
+                winnerNameTMP.text = "The game ends in a draw!";
+            }
+            else
+            {
+                winnerNameTMP.text = name + " wins! Congratulations";
+            }
+
         }
         else
         {
-            winnerNameTMP.text = name + " wins! Congratulations"; 
+            Debug.Log("winnerNameTMP" + winnerNameTMP);
         }
-        winMenu.SetActive(true);
+
+        if (winMenu != null)
+        {
+            winMenu.SetActive(true);
+        }
+       
+    }
+
+
+    public void CheckBlockNumber()
+    {
+        if (redBlocks.Count > blueBlocks.Count)
+        {
+            winnerName = redPlayerName;
+            Debug.Log("red win");
+        }
+        else if (redBlocks.Count < blueBlocks.Count)
+        {
+            winnerName = bluePlayerName;
+            Debug.Log("blue win" + winnerName);
+        }
+        else
+        {
+            Debug.Log("equal situation");
+            winnerName = "";
+        }
+
+        WinAccordingBlocks(winnerName);
     }
 
     //if when game time is use up will calculate this which is more will win
     public void AddRedBlock(Block block)
     {
         redBlocks.Add(block);
+
     }
 
     public void RemoveRedBlock(Block block)
@@ -81,24 +124,5 @@ public class GameManager : MonoBehaviour
     {
         blueBlocks.Remove(block);
     }
-    public void CheckBlockNumber()
-    {
-        if (redBlocks.Count > blueBlocks.Count)
-        {
-            winnerName = "Red Player";
-            Debug.Log("red win");
-        }
-        else if (redBlocks.Count < blueBlocks.Count)
-        {
-            winnerName = "Blue Player";
-            Debug.Log("blue win" + winnerName);
-        }
-        else
-        {
-            Debug.Log("equal situation");
-            winnerName = "";
-        }
 
-        WinAccordingBlocks(winnerName);
-    }
 }
