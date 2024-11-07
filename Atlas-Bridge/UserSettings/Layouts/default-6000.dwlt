@@ -1058,10 +1058,10 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1121.3333
-      height: 895
-    m_Scale: {x: 0.73003465, y: 0.73003465}
-    m_Translation: {x: 560.6666, y: 447.5}
+      width: 672.4
+      height: 475.40002
+    m_Scale: {x: 0.43776044, y: 0.43776044}
+    m_Translation: {x: 336.2, y: 237.70001}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -1069,12 +1069,12 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -768
-      y: -612.9846
+      y: -542.9911
       width: 1536
-      height: 1225.9692
+      height: 1085.9822
     m_MinimalGUI: 1
-  m_defaultScale: 0.73003465
-  m_LastWindowPixelSize: {x: 1121.3333, y: 916}
+  m_defaultScale: 0.43776044
+  m_LastWindowPixelSize: {x: 672.4, y: 496.40002}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -2431,7 +2431,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 143.33331}
     m_SelectedIDs: e8ae0000
     m_LastClickedID: 44776
-    m_ExpandedIDs: 0000000038ae0000
+    m_ExpandedIDs: 0000000070ad0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2460,7 +2460,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000038ae0000
+    m_ExpandedIDs: 0000000070ad0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -3184,9 +3184,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 0.029415913, y: -73.8726, z: 22.408016}
+    m_Target: {x: -134.54811, y: -1072.9628, z: -441.76382}
     speed: 2
-    m_Value: {x: 960, y: 540, z: 0}
+    m_Value: {x: 0.029415913, y: -73.8726, z: 22.408016}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -3232,13 +3232,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.588752, y: -0.02110949, z: 0.015313796, w: -0.80799097}
+    m_Target: {x: 0.08188863, y: -0.8256206, z: 0.54439723, w: 0.12465552}
     speed: 2
-    m_Value: {x: -0.15761894, y: 0.13590859, z: -0.021906812, w: -0.9778845}
+    m_Value: {x: -0.5887519, y: -0.02110949, z: 0.015313796, w: -0.80799097}
   m_Size:
-    m_Target: 42.717503
+    m_Target: 594.6788
     speed: 2
-    m_Value: 797.976
+    m_Value: 42.717503
   m_Ortho:
     m_Target: 0
     speed: 2
