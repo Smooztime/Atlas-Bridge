@@ -52,10 +52,7 @@ public class PlayerController : MonoBehaviour
         _rotateChange = !_rotateChange;
     }
 
-    public void PauseInput()
-    {
-
-    }
+   
 
     private void RotatePlayer()
     {

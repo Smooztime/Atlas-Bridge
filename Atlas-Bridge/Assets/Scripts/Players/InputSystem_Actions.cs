@@ -106,7 +106,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             ""id"": ""12e57d41-9d37-492d-85d9-f137077fde18"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""d80af613-657f-4aba-b96f-7eb16dff4645"",
                     ""expectedControlType"": """",
@@ -123,7 +123,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -201,7 +201,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Blue_Movement = m_Blue.FindAction("Movement", throwIfNotFound: true);
         // ESC
         m_ESC = asset.FindActionMap("ESC", throwIfNotFound: true);
-        m_ESC_Newaction = m_ESC.FindAction("New action", throwIfNotFound: true);
+        m_ESC_Pause = m_ESC.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -362,12 +362,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     // ESC
     private readonly InputActionMap m_ESC;
     private List<IESCActions> m_ESCActionsCallbackInterfaces = new List<IESCActions>();
-    private readonly InputAction m_ESC_Newaction;
+    private readonly InputAction m_ESC_Pause;
     public struct ESCActions
     {
         private @InputSystem_Actions m_Wrapper;
         public ESCActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_ESC_Newaction;
+        public InputAction @Pause => m_Wrapper.m_ESC_Pause;
         public InputActionMap Get() { return m_Wrapper.m_ESC; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -377,16 +377,16 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_ESCActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_ESCActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IESCActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IESCActions instance)
@@ -459,6 +459,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     }
     public interface IESCActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

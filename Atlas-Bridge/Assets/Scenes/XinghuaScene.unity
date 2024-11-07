@@ -523,6 +523,10 @@ PrefabInstance:
       propertyPath: mapName
       value: Red
       objectReference: {fileID: 0}
+    - target: {fileID: 1164021215720645513, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1912515152}
     - target: {fileID: 5561468063739561786, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
       propertyPath: m_Name
       value: Red_Player
@@ -1303,6 +1307,7 @@ MonoBehaviour:
   redPlayerName: Red Player
   bluePlayerName: Blue Player
   winnerNameTMP: {fileID: 1068164614}
+  pauseMenu: {fileID: 1912515152}
   redBlocks: []
   blueBlocks: []
 --- !u!4 &673232686
@@ -2749,7 +2754,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c9cac0c2905bd7b4fbdf8a638b39a43e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3707,6 +3712,10 @@ PrefabInstance:
       propertyPath: mapName
       value: Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 1164021215720645513, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1912515152}
     - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
       propertyPath: flagHolderType
       value: 1

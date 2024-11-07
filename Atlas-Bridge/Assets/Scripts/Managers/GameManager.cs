@@ -16,10 +16,13 @@ public class GameManager : MonoBehaviour
     private string winnerName;
     [SerializeField]  TMP_Text winnerNameTMP;
 
+    [SerializeField] private GameObject pauseMenu;
+
     [Header("Win set up 2 situation")]
     public List<Block> redBlocks = new List<Block>();
     public List<Block> blueBlocks = new List<Block>();
 
+   
     private void Awake()
     {
         if (Instance == null)
@@ -46,6 +49,14 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("game over");
+    }
+    public void PauseGame()
+    {
+        if(pauseMenu != null)
+        {
+            pauseMenu.SetActive(true);
+        }
+        
     }
     public void WinHappen(FlagHolder player)
     {
