@@ -21,11 +21,11 @@ public class FlagHolder : MonoBehaviour
     {
         if (this.flagHolderType == FlagHolderType.redHolder)
         {
-            playerName = "Blue Player";
+            playerName = "Red Player";
         }
         else
         {
-            playerName = "Red Player";
+            playerName = "Blue Player";
         }
         InitializeFlagDisplay();
     }
