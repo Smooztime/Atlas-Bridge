@@ -2999,6 +2999,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3697642266531509778, guid: 7bb406e8aad92064984a2321f664d603, type: 3}
+      propertyPath: flagHolderType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5561468063739561786, guid: 7bb406e8aad92064984a2321f664d603, type: 3}
       propertyPath: m_Name
       value: Blue_Player
@@ -3957,7 +3961,7 @@ MonoBehaviour:
   redPlayerName: Red Player
   bluePlayerName: Blue Player
   winnerName: 
-  gameUI: {fileID: 0}
+  gameUI: {fileID: 11400000, guid: e63f062677cc12e489f68b50ea8eabef, type: 2}
   redBlocks: []
   blueBlocks: []
   isGameOver: 0
