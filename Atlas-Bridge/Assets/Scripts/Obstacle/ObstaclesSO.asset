@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0062f43615c594a84154b9f4d0c712, type: 3}
   m_Name: ObstaclesSO
   m_EditorClassIdentifier: 
-  ObstacleForce: 30
+  ObstacleForce: 8
