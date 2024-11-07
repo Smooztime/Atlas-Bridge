@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnBarrel()
     {
-        barrelObject = Instantiate(rollBarrelPerfab, barrelSpawnTransform.position,Quaternion.identity);
+        barrelObject = Instantiate(rollBarrelPerfab, barrelSpawnTransform.position, Quaternion.Euler(0f, -90f, 0f));
         barrels.Add(barrelObject);
     }
 

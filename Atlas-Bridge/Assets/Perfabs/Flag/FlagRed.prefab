@@ -144,7 +144,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.5756391, y: 2.5163145, z: 1.1830184}
   m_Center: {x: -0.28781956, y: 0.75815725, z: -0.3541571}
@@ -203,15 +203,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6882291040766205955, guid: da3bf0b446a8660439ef5a018f3c5694, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6882291040766205955, guid: da3bf0b446a8660439ef5a018f3c5694, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6882291040766205955, guid: da3bf0b446a8660439ef5a018f3c5694, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6882291040766205955, guid: da3bf0b446a8660439ef5a018f3c5694, type: 3}
       propertyPath: m_LocalPosition.x
@@ -255,7 +255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6882291040766205955, guid: da3bf0b446a8660439ef5a018f3c5694, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
