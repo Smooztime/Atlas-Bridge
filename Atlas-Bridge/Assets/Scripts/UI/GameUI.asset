@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GameUI
   m_EditorClassIdentifier: 
   winMenuPerfab: {fileID: 58921351992480014, guid: dcdb8fdc58423774288b1b6c518054db, type: 3}
-  pauseMenuPerfab: {fileID: 1179309154226817450, guid: cbc6fef7e51a87040a9447a130e6a426, type: 3}
+  pauseMenuPerfab: {fileID: 7108216931612178074, guid: cbc6fef7e51a87040a9447a130e6a426, type: 3}

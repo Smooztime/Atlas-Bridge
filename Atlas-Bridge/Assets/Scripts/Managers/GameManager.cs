@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Unity.Collections.AllocatorManager;
 
@@ -10,14 +11,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [Header("Win set up 1 situation")]
-    [SerializeField] GameObject winMenuPerfab;
-    [SerializeField] GameObject winMenu;
+
     [SerializeField] string redPlayerName;
     [SerializeField] string bluePlayerName;
     private string winnerName;
     [SerializeField]  TMP_Text winnerNameTMP;
 
-    [SerializeField] private GameObject pauseMenu;
+    //[SerializeField] private GameObject pauseMenu;
 
     public GameUI gameUI;
     [Header("Win set up 2 situation")]
@@ -41,25 +41,16 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+       // InitializeUI();
         winnerName = "";
-        winMenu.SetActive(false);
-
         redBlocks.Clear();
         blueBlocks.Clear();
     }
     private void InitializeUI()
     {
-        if (gameUI != null)
-        {
-            GameObject winMenu = GameObject.Find("WinMenu");
-            GameObject pauseMenu = GameObject.Find("PauseMenu");
 
-            if (winMenu != null && pauseMenu != null)
-            {
-                gameUI.SetWinMenu();
-                gameUI.SetPauseMenu();
-            }
-        }
+        gameUI.SetMenuWhenLoad();
+        
     }
 
     public void GameOver()
@@ -68,22 +59,23 @@ public class GameManager : MonoBehaviour
     }
     public void PauseGame()
     {
-        if (pauseMenu != null)
+        if (SceneManager.GetActiveScene().name != "Menu")
         {
-            pauseMenu.SetActive(true);
+            gameUI.SetPauseMenu();
+            Time.timeScale = 0f;
         }
         else
         {
-            gameUI.SetPauseMenu();
+            return;
         }
-        
+ 
     }
     public void WinHappen(FlagHolder player)
     {
         //Debug.Log(player+"win");
         winnerName = player.playerName;
         winnerNameTMP.text = winnerName + " wins! Congratulations";
-        winMenu.SetActive(true);
+        gameUI.SetWinMenu();
     }
     public void WinAccordingBlocks(string name)
     {
@@ -106,9 +98,9 @@ public class GameManager : MonoBehaviour
             Debug.Log("winnerNameTMP" + winnerNameTMP);
         }
 
-        if (winMenu != null)
+        if (gameUI != null)
         {
-            winMenu.SetActive(true);
+           gameUI.SetWinMenu();
         }
        
     }

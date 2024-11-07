@@ -13,11 +13,19 @@ public class GameUI : ScriptableObject
     public void SetWinMenu()
     {
         this.winMenu = Instantiate(winMenuPerfab);
+        this.pauseMenuPerfab.SetActive(true);
     }
 
     public void SetPauseMenu()
     {
-        this.pauseMenu = Instantiate(pauseMenuPerfab);
+        SetMenuWhenLoad();
         this.pauseMenuPerfab.SetActive(true);
+    }
+    public void SetMenuWhenLoad()
+    {
+        this.winMenu = Instantiate(winMenuPerfab);
+        this.pauseMenu = Instantiate(pauseMenuPerfab);
+        this.pauseMenuPerfab.SetActive(false);
+        this.pauseMenuPerfab.SetActive(false);
     }
 }
