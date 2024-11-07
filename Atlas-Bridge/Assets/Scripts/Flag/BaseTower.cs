@@ -11,7 +11,8 @@ public class BaseTower : MonoBehaviour
     [SerializeField] private Material red;
     [SerializeField] private Material blue;
 
-    private Flag flagScript;
+    private Flag[] Flags;
+    private Flag removeFlag;
     private FlagType flagType;
     private FlagHolderType flagHolderType;
     private FlagHolder player;
@@ -25,34 +26,41 @@ public class BaseTower : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //tower got player with flag
+        //tower got player with flagHolder
         if (other.GetComponentInChildren<Flag>())
         {
-            flagScript = other.GetComponentInChildren<Flag>(); 
-           // Debug.Log("flay type is:" + flagScript.Type);
-
+            Flag[] flags = other.GetComponentsInChildren<Flag>(); 
             player = other.GetComponent<FlagHolder>();
-
-            //Debug.Log("player type is:" + player.flagHolderType);
-
-            //red tower with blue player and blue flag
+            //red tower with red player and blue holder 
             if (this.towerType == TowerType.redTower && player.flagHolderType == FlagHolder.FlagHolderType.blueHolder)
             {
-                if (flagType == Flag.FlagType.flagBlue || player.flagsHolding.Count==2)
+                foreach (Flag flag in flags)
                 {
-                    Debug.Log(" red tower interact with flag");
-                    SetFlagPosition(flagScript.gameObject);
-                    LightBlueTower(blue);
+                    if (flag.Type == Flag.FlagType.flagBlue)
+                    {
+                        Debug.Log("before:" +flags.Length);
+                        SetFlagPosition(flag.gameObject);
+                        removeFlag = flag;
+                        player.RemoveFlag(removeFlag);
+                        LightBlueTower(blue, player);
+                        break; 
+                    }
                 }
             }
             //blue tower with red player and red flag
             else if (this.towerType == TowerType.blueTower && player.flagHolderType == FlagHolder.FlagHolderType.redHolder)
             {
-                if (flagType == Flag.FlagType.flagRed || player.flagsHolding.Count==2)
+                foreach (Flag flag in flags)
                 {
-                    Debug.Log(" blue tower interact with flag");
-                    SetFlagPosition(flagScript.gameObject);
-                    LightBlueTower(red);
+                    if (flag.Type == Flag.FlagType.flagRed)
+                    {
+                        Debug.Log("before:" + flags.Length);
+                        SetFlagPosition(flag.gameObject);
+                        removeFlag =flag;
+                        player.RemoveFlag(removeFlag);
+                        LightBlueTower(red,player);
+                        break;
+                    }
                 }
             }
             else return;
@@ -63,10 +71,12 @@ public class BaseTower : MonoBehaviour
         flagObject.transform.SetParent(this.gameObject.transform);
         flagObject.transform.position = _towerFlagPosition.position;
     }
-    private void LightBlueTower(Material value)
+    private void LightBlueTower(Material value,FlagHolder flagHolder)
     {
         Renderer renderer = gameObject.GetComponent<Renderer>();
         renderer.material = value;
+        GameManager.Instance.WinHappen(flagHolder);
+
     }
 
 }

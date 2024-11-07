@@ -100,6 +100,34 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""ESC"",
+            ""id"": ""12e57d41-9d37-492d-85d9-f137077fde18"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""d80af613-657f-4aba-b96f-7eb16dff4645"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b16690d3-2158-4866-b73d-6d0796ca460b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -171,12 +199,16 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         // Blue
         m_Blue = asset.FindActionMap("Blue", throwIfNotFound: true);
         m_Blue_Movement = m_Blue.FindAction("Movement", throwIfNotFound: true);
+        // ESC
+        m_ESC = asset.FindActionMap("ESC", throwIfNotFound: true);
+        m_ESC_Pause = m_ESC.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
     {
         UnityEngine.Debug.Assert(!m_Red.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Red.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Blue.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Blue.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_ESC.enabled, "This will cause a leak and performance issues, InputSystem_Actions.ESC.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -326,6 +358,52 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         }
     }
     public BlueActions @Blue => new BlueActions(this);
+
+    // ESC
+    private readonly InputActionMap m_ESC;
+    private List<IESCActions> m_ESCActionsCallbackInterfaces = new List<IESCActions>();
+    private readonly InputAction m_ESC_Pause;
+    public struct ESCActions
+    {
+        private @InputSystem_Actions m_Wrapper;
+        public ESCActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_ESC_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_ESC; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ESCActions set) { return set.Get(); }
+        public void AddCallbacks(IESCActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ESCActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ESCActionsCallbackInterfaces.Add(instance);
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+        }
+
+        private void UnregisterCallbacks(IESCActions instance)
+        {
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+        }
+
+        public void RemoveCallbacks(IESCActions instance)
+        {
+            if (m_Wrapper.m_ESCActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IESCActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ESCActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ESCActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ESCActions @ESC => new ESCActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -378,5 +456,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     public interface IBlueActions
     {
         void OnMovement(InputAction.CallbackContext context);
+    }
+    public interface IESCActions
+    {
+        void OnPause(InputAction.CallbackContext context);
     }
 }

@@ -13,6 +13,7 @@ public class SpawnManager : MonoBehaviour
     private GameObject barrelObject;
     private List<GameObject> barrels;
 
+    [Header("bomb spawn")]
     [Header("rolling barrel move")]
     public float rollSpeed = 5f;
 
@@ -21,14 +22,9 @@ public class SpawnManager : MonoBehaviour
         barrels = new List<GameObject>();
     }
 
-    private void Start()
-    {
-        SpawnBarrel();
-    }
-
     private void SpawnBarrel()
     {
-        barrelObject = Instantiate(rollBarrelPerfab, barrelSpawnTransform.position,Quaternion.identity);
+        barrelObject = Instantiate(rollBarrelPerfab, barrelSpawnTransform.position, Quaternion.Euler(0f, -90f, 0f));
         barrels.Add(barrelObject);
     }
 
