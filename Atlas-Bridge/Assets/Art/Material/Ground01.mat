@@ -51,8 +51,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Ground_Intensity: 0.7
-    - _Ground_Scale: 36
+    - _Ground_Intensity: 0.76
+    - _Ground_Scale: 36.13
     - _Intensity: 0.52
     - _QueueControl: 0
     - _QueueOffset: 0
