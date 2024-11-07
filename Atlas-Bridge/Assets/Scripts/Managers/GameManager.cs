@@ -14,15 +14,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] string redPlayerName;
     [SerializeField] string bluePlayerName;
-    private string winnerName;
-    [SerializeField]  TMP_Text winnerNameTMP;
-
-    //[SerializeField] private GameObject pauseMenu;
+    public string winnerName;
 
     public GameUI gameUI;
     [Header("Win set up 2 situation")]
     public List<Block> redBlocks = new List<Block>();
     public List<Block> blueBlocks = new List<Block>();
+    public bool isGameOver =false;
 
    
     private void Awake()
@@ -41,7 +39,6 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-       // InitializeUI();
         winnerName = "";
         redBlocks.Clear();
         blueBlocks.Clear();
@@ -72,37 +69,16 @@ public class GameManager : MonoBehaviour
     }
     public void WinHappen(FlagHolder player)
     {
-        //Debug.Log(player+"win");
         winnerName = player.playerName;
-        winnerNameTMP.text = winnerName + " wins! Congratulations";
+        Debug.Log(winnerName);
+        isGameOver =true;
         gameUI.SetWinMenu();
     }
     public void WinAccordingBlocks(string name)
     {
-        
-        Debug.Log("name" + name);
-        if (winnerNameTMP != null)
-        {
-            if (name == "")
-            {
-                winnerNameTMP.text = "The game ends in a draw!";
-            }
-            else
-            {
-                winnerNameTMP.text = name + " wins! Congratulations";
-            }
-
-        }
-        else
-        {
-            Debug.Log("winnerNameTMP" + winnerNameTMP);
-        }
-
-        if (gameUI != null)
-        {
-           gameUI.SetWinMenu();
-        }
-       
+        name = winnerName;
+        isGameOver = true;
+        gameUI.SetWinMenu();
     }
 
     public void CheckBlockNumber()
