@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class FlagHolder : MonoBehaviour
@@ -12,7 +10,7 @@ public class FlagHolder : MonoBehaviour
     public string playerName;
 
     public GameObject[] flagImageSlot;
-   
+
 
     public enum FlagHolderType
     {
@@ -29,10 +27,9 @@ public class FlagHolder : MonoBehaviour
         {
             playerName = "Red Player";
         }
-        }
         InitializeFlagDisplay();
     }
-   
+
 
     private void InitializeFlagDisplay()
     {
