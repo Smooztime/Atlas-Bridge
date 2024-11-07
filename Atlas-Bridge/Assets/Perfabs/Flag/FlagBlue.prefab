@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8483919371764412159}
   - component: {fileID: 7323863961892776592}
   - component: {fileID: 6175715999926298084}
-  - component: {fileID: 1490983255698179121}
   - component: {fileID: 2059273887477838746}
   - component: {fileID: 273428282996205434}
   - component: {fileID: 2198234652055853218}
@@ -113,20 +112,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9004138, y: 2.6542087, z: 1.3557482}
   m_Center: {x: -0.450207, y: 0.82710433, z: -0.17787409}
---- !u!114 &1490983255698179121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5665495112671163757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aa92001f1ba482409a735391caf3fa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flagType: 1
-  pickupCooldown: 3
 --- !u!65 &2059273887477838746
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -223,7 +208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4735371516354480839, guid: a512bb6549c9d4a479ae707f69593346, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4735371516354480839, guid: a512bb6549c9d4a479ae707f69593346, type: 3}
       propertyPath: m_LocalRotation.x
@@ -231,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4735371516354480839, guid: a512bb6549c9d4a479ae707f69593346, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4735371516354480839, guid: a512bb6549c9d4a479ae707f69593346, type: 3}
       propertyPath: m_LocalRotation.z
@@ -243,7 +228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4735371516354480839, guid: a512bb6549c9d4a479ae707f69593346, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4735371516354480839, guid: a512bb6549c9d4a479ae707f69593346, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
