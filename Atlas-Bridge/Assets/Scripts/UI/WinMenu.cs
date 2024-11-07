@@ -17,7 +17,7 @@ public class WinMenu : MonoBehaviour
 
         if (winnerNameTMP != null)
         {
-            if (name == "")
+            if (GameManager.Instance.winnerName == "")
             {
                 winnerNameTMP.text = "The game ends in a draw!";
             }
