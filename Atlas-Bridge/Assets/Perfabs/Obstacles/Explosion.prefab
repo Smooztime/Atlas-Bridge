@@ -4943,7 +4943,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -4961,7 +4961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acae58f69d870384ebeb59855bc0f2fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclesSO: {fileID: 0}
+  obstaclesSO: {fileID: 11400000, guid: 783aff2b1e77b5344810b81a74e86ad4, type: 2}
 --- !u!199 &2148198522456348060
 ParticleSystemRenderer:
   serializedVersion: 6

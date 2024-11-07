@@ -8,7 +8,7 @@ public class Explosion : Obstacles
         {
             if (other.gameObject.GetComponent<PlayerController>()._isControllerActive)
             {
-                Debug.Log("Spike made holes on your body");
+                Debug.Log("Bomb yourself");
                 other.gameObject.GetComponent<KnockBack>().KnockBackFromStuffs(this.gameObject.transform, obstaclesSO.ObstacleForce);
             }
         }
@@ -20,7 +20,7 @@ public class Explosion : Obstacles
         {
             if (other.gameObject.GetComponent<PlayerController>()._isControllerActive)
             {
-                Debug.Log("Spike made holes on your body");
+                Debug.Log("Bomb yourself");
                 other.gameObject.GetComponent<KnockBack>().KnockBackFromStuffs(this.gameObject.transform, obstaclesSO.ObstacleForce);
             }
         }

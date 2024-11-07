@@ -36,40 +36,41 @@ public class ExplosionSpawnManager : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(forEachTime);
-            if (_amount >= _randomAmount)
-            {
-                _amount = 0;
-                _randomAmount = 0;
-            }
+            _amount = 0;
+            _randomAmount = 0;
             _randomAmount = Random.Range(min, max);
             RaycastHit hit;
-            while (!_canSpawn)
+            while(_amount < _randomAmount)
             {
-                Vector3 origin = new Vector3(Random.Range(positivePos.x, negativePos.x), transform.position.y, Random.Range(positivePos.y, negativePos.y));
-                if (Physics.Raycast(origin, Vector3.down, out hit, distance))
+                yield return new WaitForSeconds(forEachExplode);
+                _canSpawn = false;
+                while (!_canSpawn)
                 {
-                    if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                    Vector3 origin = new Vector3(Random.Range(positivePos.x, negativePos.x), transform.position.y, Random.Range(positivePos.y, negativePos.y));
+                    if (Physics.Raycast(origin, Vector3.down, out hit, distance))
                     {
-                        pos = hit.point;
-                        _canSpawn = true;
+                        if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                        {
+                            pos = hit.point;
+                            _canSpawn = true;
+                        }
+                        else
+                        {
+                            _canSpawn = false;
+                            Debug.Log("Bad spot, cannot plant the bomb");
+                        }
                     }
                     else
                     {
                         _canSpawn = false;
-                        Debug.Log("Bad spot, cannot plant the bomb");
+                        Debug.Log("Where is ground?");
+                    }
+                    if (_canSpawn)
+                    {
+                        _explodsionSpawn = Instantiate(explosion, pos, Quaternion.identity);
                     }
                 }
-                else
-                {
-                    _canSpawn = false;
-                    Debug.Log("Bad spot, cannot plant the bomb");
-                }
-                if (_canSpawn)
-                {
-                    _explodsionSpawn = Instantiate(explosion, pos, Quaternion.identity);
-                    _amount += 1;
-                    _isPlant = true;
-                }
+                _amount += 1;
             }
         }
     }
@@ -97,7 +98,4 @@ public class ExplosionSpawnManager : MonoBehaviour
         _explodsionSpawn = Instantiate(explosion, pos, Quaternion.identity);
         _amount += 1;
     }*/
-}
-
-
 }
