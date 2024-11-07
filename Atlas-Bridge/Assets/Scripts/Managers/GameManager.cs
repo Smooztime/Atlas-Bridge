@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [Header("Win set up 1 situation")]
+    [SerializeField] GameObject winMenuPerfab;
     [SerializeField] GameObject winMenu;
     [SerializeField] string redPlayerName;
     [SerializeField] string bluePlayerName;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject pauseMenu;
 
+    public GameUI gameUI;
     [Header("Win set up 2 situation")]
     public List<Block> redBlocks = new List<Block>();
     public List<Block> blueBlocks = new List<Block>();
@@ -45,6 +47,20 @@ public class GameManager : MonoBehaviour
         redBlocks.Clear();
         blueBlocks.Clear();
     }
+    private void InitializeUI()
+    {
+        if (gameUI != null)
+        {
+            GameObject winMenu = GameObject.Find("WinMenu");
+            GameObject pauseMenu = GameObject.Find("PauseMenu");
+
+            if (winMenu != null && pauseMenu != null)
+            {
+                gameUI.SetWinMenu();
+                gameUI.SetPauseMenu();
+            }
+        }
+    }
 
     public void GameOver()
     {
@@ -52,9 +68,13 @@ public class GameManager : MonoBehaviour
     }
     public void PauseGame()
     {
-        if(pauseMenu != null)
+        if (pauseMenu != null)
         {
             pauseMenu.SetActive(true);
+        }
+        else
+        {
+            gameUI.SetPauseMenu();
         }
         
     }
