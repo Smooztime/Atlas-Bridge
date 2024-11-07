@@ -51,13 +51,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Ground_Intensity: 0.76
-    - _Ground_Scale: 36.13
+    - _Ground_Intensity: 2.49
+    - _Ground_Scale: 751
     - _Intensity: 0.52
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Grass_Color: {r: 0.0068782973, g: 0.42452827, b: 0, a: 0}
-    - _Ground_Color: {r: 0.23584905, g: 0.01223745, b: 0.01223745, a: 0}
+    - _Grass_Color: {r: 0.78113204, g: 0.41502038, b: 0.35224634, a: 0}
+    - _Ground_Color: {r: 0.007843138, g: 0.42352945, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
