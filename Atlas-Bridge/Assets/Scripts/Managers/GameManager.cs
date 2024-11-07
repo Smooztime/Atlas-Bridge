@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static Unity.Collections.AllocatorManager;
 
 public class GameManager : MonoBehaviour
@@ -80,7 +81,6 @@ public class GameManager : MonoBehaviour
         }
        
     }
-
 
     public void CheckBlockNumber()
     {
