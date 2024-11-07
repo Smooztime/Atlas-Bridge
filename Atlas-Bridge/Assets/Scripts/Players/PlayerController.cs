@@ -1,13 +1,20 @@
+using System.Collections;
+using UnityEditor.Build;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] PlayerStatsSO playerState;
+    [SerializeField] PlayerStatsSO playerStats;
 
-    private Rigidbody rb;
+    private Rigidbody rb; 
     private float _movement;
+    private Transform _playerDir;
     private bool _rotateChange;
-    private bool _isMove;
+    public bool _isKnockBack { get; set; }
+    public bool _isControllerActive { get; set; }
+    public Rigidbody RB => rb;
+    public PlayerStatsSO PlayerState => playerStats;
 
     private void Awake()
     {
@@ -16,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        _isMove = false;
+        _isControllerActive = true;
     }
 
     private void FixedUpdate()
@@ -32,27 +39,40 @@ public class PlayerController : MonoBehaviour
 
     private void OnMove()
     {
-        if (_movement == 1)
+        if (_movement == 1 && _isControllerActive == true)
         {
-            rb.linearVelocity = transform.forward * playerState.MovementSpeed;
-            rb.linearVelocity.Normalize();
+            rb.angularVelocity = Vector3.zero;
+            rb.linearVelocity = transform.forward * playerStats.MovementSpeed;
         }
     }
 
     public void OnMoveReleased()
     {
-        rb.linearVelocity = transform.forward * playerState.MovementSpeed;
         _movement = 0;
         _rotateChange = !_rotateChange;
     }
 
+    public void PauseInput()
+    {
+
+    }
+
     private void RotatePlayer()
     {
-        if (rb.linearVelocity.magnitude > 0.1f) return;
-        else
+        if (rb.linearVelocity.magnitude > 0.2f) return;
+        else if (_isControllerActive == true)
         {
-            if (_rotateChange) transform.Rotate(0, playerState.RotateSpeed * Time.fixedDeltaTime, 0);
-            else transform.Rotate(0, -playerState.RotateSpeed * Time.fixedDeltaTime, 0);
+            if (_rotateChange) rb.angularVelocity = new Vector3(0, playerStats.RotateSpeed * Time.fixedDeltaTime, 0);
+            else rb.angularVelocity = new Vector3(0, -playerStats.RotateSpeed * Time.fixedDeltaTime, 0);
         }
+        else rb.angularVelocity = Vector3.zero;
+    }
+
+    public IEnumerator DisableController()
+    {
+        Debug.Log("Start");
+        _isControllerActive = false;
+        yield return new WaitForSeconds(1);
+        _isControllerActive = true;
     }
 }

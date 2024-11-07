@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using static Flag;
 
 public class FlagHolder : MonoBehaviour
 {
@@ -13,7 +10,7 @@ public class FlagHolder : MonoBehaviour
     public string playerName;
 
     public GameObject[] flagImageSlot;
-   
+
 
     public enum FlagHolderType
     {
@@ -26,13 +23,13 @@ public class FlagHolder : MonoBehaviour
         {
             playerName = "Blue Player";
         }
-        else 
+        else
         {
             playerName = "Red Player";
         }
         InitializeFlagDisplay();
     }
-   
+
 
     private void InitializeFlagDisplay()
     {
@@ -68,6 +65,8 @@ public class FlagHolder : MonoBehaviour
     {
         flagsHolding.Remove(flag);
         Debug.Log("RemoveFlag hold flag:" + flagsHolding.Count);
+        if (flagsHolding.Count <= 0) isHoldingFlag = false;
+        Debug.Log("RemoveFlag hold flag:" + flagsHolding.Count);
 
         if (flag.Type == Flag.FlagType.flagBlue)
         {
@@ -84,5 +83,4 @@ public class FlagHolder : MonoBehaviour
             }
         }
     }
-   
 }

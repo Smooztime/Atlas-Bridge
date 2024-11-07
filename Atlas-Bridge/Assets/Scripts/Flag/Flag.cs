@@ -1,11 +1,5 @@
-using NUnit.Framework;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 
 public class Flag : MonoBehaviour
 {
@@ -14,11 +8,19 @@ public class Flag : MonoBehaviour
     private bool canBePickedUp = true;
     [SerializeField] private float pickupCooldown = 3f;
     private Transform originalRotation;
+    private bool _isPickedUp = false;
+    private Transform _backPosition;
+    private Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     private void Start()
     {
         //store the rotate at beginnings
-        originalRotation =this.transform;
+        originalRotation = this.transform;
     }
     public enum FlagType
     {
@@ -30,29 +32,38 @@ public class Flag : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        flagHolder = other.GetComponent<FlagHolder>();
-        if (flagHolder != null)
+        if(other.GetComponent<FlagHolder>())
         {
-            if (canBePickedUp)
+            bool _isKnockBack = other.GetComponent<PlayerController>()._isKnockBack;
+            flagHolder = other.GetComponent<FlagHolder>();
+            if (flagHolder != null && !_isPickedUp && _isKnockBack == false)
             {
-                FlagBePickedUP();
-                //Debug.Log("pickup " +this.name);
-                flagHolder.AddFlag(this);
+                if (canBePickedUp)
+                {
+                    FlagBePickedUP();
+                    Debug.Log("pickup " + this.name);
+                    flagHolder.AddFlag(this);
+                }
             }
         }
     }
     private void FlagBePickedUP()
     {
-        this.transform.SetParent(flagHolder.transform);
-        this.transform.localPosition = new Vector3(0.5f, 0.5f, 0.5f);
+        rb.freezeRotation = false;
+        rb.isKinematic = true;
+        rb.detectCollisions = false;
+        _backPosition = flagHolder.transform.GetChild(1).transform;
+        this.transform.SetParent(_backPosition);
+        this.transform.position = _backPosition.position;
         if (flagHolder.flagsHolding.Count == 0)
         {
-            this.transform.Rotate(30f, 0f, 0f, Space.World);
+            this.transform.localRotation = Quaternion.Euler(45f, 90f, 0f);
         }
-        else if(flagHolder.flagsHolding.Count == 1)
+        else if (flagHolder.flagsHolding.Count == 1)
         {
-            this.transform.Rotate(-30f, 0f, 0f, Space.World);
+            this.transform.localRotation = Quaternion.Euler(45f, -90f, 0f);
         }
+        _isPickedUp = true;
     }
 
     private IEnumerator PickUpCooldown()
@@ -63,9 +74,22 @@ public class Flag : MonoBehaviour
 
     public void FlagFallOnGround()
     {
+        _isPickedUp = false;
+        rb.freezeRotation = true;
+        rb.isKinematic = false;
+        rb.detectCollisions = true;
+
         this.transform.SetParent(null);
-        this.transform.position = new Vector3(transform.position.x, 0,this.transform.position.z);
-        this.transform.Rotate(10,10f,90f);
+        if (flagHolder.flagsHolding.Count == 2)
+        {
+            this.transform.position = new Vector3(_backPosition.position.x + 0.5f, _backPosition.position.y, _backPosition.position.z);
+            this.transform.rotation = Quaternion.Euler(0f, 90f, 90f);
+        }
+        else if (flagHolder.flagsHolding.Count == 1)
+        {
+            this.transform.position = new Vector3(_backPosition.position.x, _backPosition.position.y, _backPosition.position.z);
+            this.transform.rotation = Quaternion.Euler(180f, 90f, 90f);
+        }
         canBePickedUp = false;
         StartCoroutine(PickUpCooldown());
     }
