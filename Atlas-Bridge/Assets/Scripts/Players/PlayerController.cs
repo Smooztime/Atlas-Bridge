@@ -52,6 +52,11 @@ public class PlayerController : MonoBehaviour
         _rotateChange = !_rotateChange;
     }
 
+    public void PauseInput()
+    {
+
+    }
+
     private void RotatePlayer()
     {
         if (rb.linearVelocity.magnitude > 0.2f) return;
