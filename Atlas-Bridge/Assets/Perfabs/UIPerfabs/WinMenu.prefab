@@ -375,9 +375,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9028439171470428717, guid: 2d5c3f1e3d416084e943a23a7bb1b63f, type: 3}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 6657478621332723860, guid: ed92b28fb234f2744b614e4a7e0970e6, type: 3}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GameRestart
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

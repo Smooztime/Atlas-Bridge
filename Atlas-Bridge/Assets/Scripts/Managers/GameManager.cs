@@ -1,15 +1,16 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Unity.Collections.AllocatorManager;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public static GameManager Instance;
+   
     [Header("Win set up 1 situation")]
 
     [SerializeField] string redPlayerName;
@@ -20,23 +21,12 @@ public class GameManager : MonoBehaviour
     [Header("Win set up 2 situation")]
     public List<Block> redBlocks = new List<Block>();
     public List<Block> blueBlocks = new List<Block>();
-    public bool isGameOver =false;
+    public bool isGameOver = false;
+    public bool isBlockHit= false;
 
-   
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            Debug.Log("GameManagerDontDestroyOnLoad: " + gameObject.GetInstanceID());
-        }
-        else
-        {
-            Debug.Log("GameManager: " + gameObject.GetInstanceID());
-            Destroy(gameObject);
-        }
-    }
+
+
+
     private void Start()
     {
         winnerName = "";
@@ -45,14 +35,19 @@ public class GameManager : MonoBehaviour
     }
     private void InitializeUI()
     {
-
         gameUI.SetMenuWhenLoad();
-        
     }
+
 
     public void GameOver()
     {
         Debug.Log("game over");
+    }
+
+    public void GameRestart(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1.0f;
     }
     public void PauseGame()
     {
@@ -105,6 +100,7 @@ public class GameManager : MonoBehaviour
     //if when game time is use up will calculate this which is more will win
     public void AddRedBlock(Block block)
     {
+
         redBlocks.Add(block);
 
     }
@@ -112,16 +108,19 @@ public class GameManager : MonoBehaviour
     public void RemoveRedBlock(Block block)
     {
         redBlocks.Remove(block);
+       
     }
 
     public void AddBlueBlock(Block block)
     {
         blueBlocks.Add(block);
+
     }
 
     public void RemoveBlueBlock(Block block)
     {
         blueBlocks.Remove(block);
+        
     }
 
 }

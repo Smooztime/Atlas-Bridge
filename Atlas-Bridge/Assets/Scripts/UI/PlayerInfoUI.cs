@@ -1,5 +1,6 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PlayerInfoUI : MonoBehaviour
@@ -12,8 +13,8 @@ public class PlayerInfoUI : MonoBehaviour
     private Image redPlayerImage;
     [SerializeField] TMP_Text redTMPCount;
     private FlagHolder flagHolder;
+   
 
-  
     private void Awake()
     {
         flagHolder =gameObject.GetComponent<FlagHolder>();
@@ -22,17 +23,19 @@ public class PlayerInfoUI : MonoBehaviour
     {
        
         PlayerInfoDisply();
-
+      
     }
     private void Update()
     {
         PlayerInfoDisply();
     }
+
+
     private void PlayerInfoDisply()
     {
-        blueTMPCount.text = GameManager.Instance.blueBlocks.Count.ToString();   
-        redTMPCount.text = GameManager.Instance.redBlocks.Count.ToString();
+        blueTMPCount.text = GameManager.Instance.blueBlocks.Count.ToString();
+        redTMPCount.text = GameManager.Instance.redBlocks.Count.ToString();   
     }
 
- 
+
 }
