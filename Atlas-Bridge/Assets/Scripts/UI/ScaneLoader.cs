@@ -19,9 +19,4 @@ public class SceneLoader : MonoBehaviour
 
         Application.Quit();
     }
-    public void PlayFromMain()
-    {
-        Time.timeScale = 1.0f;
-        SceneManager.LoadScene("Menu");
-    }
 }
