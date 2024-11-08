@@ -44,7 +44,11 @@ MonoBehaviour:
     height: 1349
   m_ShowMode: 4
   m_Title: Project
+<<<<<<< HEAD
   m_RootView: {fileID: 9}
+=======
+  m_RootView: {fileID: 7}
+>>>>>>> origin/Nandini
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
@@ -63,6 +67,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 0
     width: 2560
@@ -70,6 +75,15 @@ MonoBehaviour:
   m_MinSize: {x: 50, y: 76}
   m_MaxSize: {x: 4000, y: 4026}
   m_ActualView: {fileID: 16}
+=======
+    x: 987.3333
+    y: 0
+    width: 933.3333
+    height: 942
+  m_MinSize: {x: 52, y: 76}
+  m_MaxSize: {x: 4002, y: 4026}
+  m_ActualView: {fileID: 14}
+>>>>>>> origin/Nandini
   m_Panes:
   - {fileID: 16}
   m_Selected: 0
@@ -123,7 +137,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< HEAD
   controlID: 131
+=======
+  controlID: 75
+>>>>>>> origin/Nandini
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -169,11 +187,19 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 549
     height: 942
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 23}
+=======
+    width: 382
+    height: 942
+  m_MinSize: {x: 201, y: 226}
+  m_MaxSize: {x: 4001, y: 4026}
+  m_ActualView: {fileID: 21}
+>>>>>>> origin/Nandini
   m_Panes:
   - {fileID: 23}
   m_Selected: 0
@@ -344,9 +370,15 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 549
     y: 0
     width: 1372
+=======
+    x: 382
+    y: 0
+    width: 605.3333
+>>>>>>> origin/Nandini
     height: 942
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
@@ -1049,10 +1081,17 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 10
     y: -1417
     width: 2560
     height: 1343
+=======
+    x: 987.3334
+    y: 78.66667
+    width: 931.3333
+    height: 916
+>>>>>>> origin/Nandini
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1106,16 +1145,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
       width: 2560
       height: 1322
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 1280, y: 661}
+=======
+      width: 931.3333
+      height: 895
+    m_Scale: {x: 0.72760415, y: 0.72760415}
+    m_Translation: {x: 465.66666, y: 447.5}
+>>>>>>> origin/Nandini
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -1280
       y: -661
       width: 2560
@@ -1123,6 +1170,15 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 2560, y: 1343}
+=======
+      x: -640
+      y: -615.0322
+      width: 1280
+      height: 1230.0645
+    m_MinimalGUI: 1
+  m_defaultScale: 0.72760415
+  m_LastWindowPixelSize: {x: 1397, y: 1374}
+>>>>>>> origin/Nandini
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -2323,8 +2379,13 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
+<<<<<<< HEAD
   m_LastSelectedObjectID: 205286
 --- !u!114 &20
+=======
+  m_LastSelectedObjectID: -51704
+--- !u!114 &18
+>>>>>>> origin/Nandini
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2460,7 +2521,11 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Scenes
+=======
+    - Assets/Perfabs/Manager
+>>>>>>> origin/Nandini
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -2470,16 +2535,27 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Scenes
+=======
+  - Assets/Perfabs/Manager
+>>>>>>> origin/Nandini
   m_LastFoldersGridSize: 96
   m_LastProjectPath: D:\BVC\Term_3\Game_1501\Atlas-Bridge\Atlas-Bridge
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 180}
     m_SelectedIDs: cab40000
     m_LastClickedID: 46282
     m_ExpandedIDs: 0000000032b4000034b4000036b40000bab4000000ca9a3bffffff7f
+=======
+    scrollPos: {x: 0, y: 62.666626}
+    m_SelectedIDs: 86af0000
+    m_LastClickedID: 44934
+    m_ExpandedIDs: 000000006cae00006eae000070ae000072ae000068af000000ca9a3b
+>>>>>>> origin/Nandini
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2508,7 +2584,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000032b4000034b4000036b40000
+=======
+    m_ExpandedIDs: 000000006cae00006eae000070ae000072ae0000
+>>>>>>> origin/Nandini
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2637,8 +2717,13 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 79
     width: 548
+=======
+    y: 78.66667
+    width: 381
+>>>>>>> origin/Nandini
     height: 916
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -2654,9 +2739,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 1eb50000
       m_LastClickedID: 0
       m_ExpandedIDs: be6bffff768affffb6bfffff0ee2ffff44e8ffffd0b50000eab5000002b60000
+=======
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 0836ffffe43cffffc252ffffa059ffff3e65ffff5066ffff6c99ffffb0a0ffff76a7ffff74aefffffcedffff04f1ffffb4faffff6e220100882201004c30010066300100
+>>>>>>> origin/Nandini
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2702,9 +2793,15 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 549
     y: 79
     width: 1370
+=======
+    x: 382
+    y: 78.66667
+    width: 603.3333
+>>>>>>> origin/Nandini
     height: 916
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -3232,9 +3329,15 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 616.7249, y: 331.57913, z: 449.74268}
     speed: 2
     m_Value: {x: 616.7249, y: 331.57913, z: 449.74268}
+=======
+    m_Target: {x: 3.5685196, y: 0.61398363, z: -2.3957207}
+    speed: 2
+    m_Value: {x: 3.5685196, y: 0.61398363, z: -2.3957207}
+>>>>>>> origin/Nandini
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -3280,6 +3383,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.118811004, y: 0.25665638, z: -0.031808004, w: -0.9586285}
     speed: 2
     m_Value: {x: -0.11881285, y: 0.25666037, z: -0.0318085, w: -0.9586434}
@@ -3287,6 +3391,15 @@ MonoBehaviour:
     m_Target: 1755.3676
     speed: 2
     m_Value: 1755.3676
+=======
+    m_Target: {x: -0.0009835544, y: 0.8122637, z: -0.58333373, w: -0.0013842805}
+    speed: 2
+    m_Value: {x: -0.0009835281, y: 0.81224203, z: -0.5833182, w: -0.0013842435}
+  m_Size:
+    m_Target: 10
+    speed: 2
+    m_Value: 10
+>>>>>>> origin/Nandini
   m_Ortho:
     m_Target: 0
     speed: 2
