@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: 621244d69fd156544ae4477dbb9f5f6c, type: 2}
+  _anim: {fileID: 2491239049319059081}
 --- !u!114 &7351540920760205816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +343,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.35
+  m_Radius: 0.24
   m_Height: 1.03
   m_Direction: 1
   m_Center: {x: 0, y: 0.49, z: 0}
@@ -365,7 +366,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.28
   m_Height: 1.03
   m_Direction: 1
   m_Center: {x: 0, y: 0.49, z: 0}
@@ -421,11 +422,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8785695600606150123, guid: e1e9a8d016c31d44eb7c47edadfc7e41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785695600606150123, guid: e1e9a8d016c31d44eb7c47edadfc7e41, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e9a8d016c31d44eb7c47edadfc7e41, type: 3}
+--- !u!95 &2491239049319059081 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8785695600606150123, guid: e1e9a8d016c31d44eb7c47edadfc7e41, type: 3}
+  m_PrefabInstance: {fileID: 6593172199730443106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8390914620176684275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3390404908764800913, guid: e1e9a8d016c31d44eb7c47edadfc7e41, type: 3}

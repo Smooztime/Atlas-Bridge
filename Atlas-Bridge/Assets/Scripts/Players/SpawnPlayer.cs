@@ -35,6 +35,7 @@ public class SpawnPlayer : MonoBehaviour
                 _flagHolder.RemoveFlag(flag);
             }
         }
+        _controller.Anim.SetBool("IsKnockBack", false);
 
         foreach (Collider collider in _collider)
         {
@@ -80,10 +81,10 @@ public class SpawnPlayer : MonoBehaviour
         {
             collider.enabled = false;
         }
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         foreach (Collider collider in _collider)
         {

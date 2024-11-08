@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 3
   RotateSpeed: 192.2
-  PlayerForce: 20
+  PlayerForce: 10
