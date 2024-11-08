@@ -1457,6 +1457,18 @@ PrefabInstance:
       propertyPath: 'flagImageSlot.Array.data[1]'
       value: 
       objectReference: {fileID: 611245869}
+    - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: flagImageSlot.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: 'flagImageSlot.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1459395394}
+    - target: {fileID: 3697642266531509778, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
+      propertyPath: 'flagImageSlot.Array.data[1]'
+      value: 
+      objectReference: {fileID: 611245869}
     - target: {fileID: 5561468063739561786, guid: 57a5773b380d98d4bbcd7094a2a72e6b, type: 3}
       propertyPath: m_Name
       value: Red_Player
@@ -12241,6 +12253,7 @@ PrefabInstance:
     - target: {fileID: 8607335189286018907, guid: b00554e825c364940974aad7f1dae3d9, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1.1
+      value: 5.61
       objectReference: {fileID: 0}
     - target: {fileID: 8607335189286018907, guid: b00554e825c364940974aad7f1dae3d9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13576,6 +13589,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5220809331994297986, guid: 74ecf01b7ef771f4bba663d89f4fd683, type: 3}
   m_PrefabInstance: {fileID: 4597572501190578354}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6209545906850199063
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2880637821650085872, guid: 72e0ec18e4340cb40b496e6fbc04a365, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1432.0035
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880637821650085872, guid: 72e0ec18e4340cb40b496e6fbc04a365, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 452.94388
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880637821650085872, guid: 72e0ec18e4340cb40b496e6fbc04a365, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.535025
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880637821650085872, guid: 72e0ec18e4340cb40b496e6fbc04a365, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880637821650085872, guid: 72e0ec18e4340cb40b496e6fbc04a365, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880637821650085872, guid: 72e0ec18e4340cb40b496e6fbc04a365, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880637821650085872, guid: 72e0ec18e4340cb40b496e6fbc04a365, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880637821650085872, guid: 72e0ec18e4340cb40b496e6fbc04a365, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880637821650085872, guid: 72e0ec18e4340cb40b496e6fbc04a365, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880637821650085872, guid: 72e0ec18e4340cb40b496e6fbc04a365, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902614075272445728, guid: 72e0ec18e4340cb40b496e6fbc04a365, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72e0ec18e4340cb40b496e6fbc04a365, type: 3}
 --- !u!1001 &7124014446927109407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13674,3 +13744,4 @@ SceneRoots:
   - {fileID: 162905435}
   - {fileID: 667416373}
   - {fileID: 79438155}
+  - {fileID: 6209545906850199063}
