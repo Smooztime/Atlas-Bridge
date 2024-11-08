@@ -8,8 +8,10 @@ public class Spike : Obstacles
         {
             if(other.gameObject.GetComponent<PlayerController>()._isControllerActive)
             {
+                SoundManagerNew.Instance.PlaySFX("hitSfx");
                 Debug.Log("Spike made holes on your body");
                 other.gameObject.GetComponent<KnockBack>().KnockBackFromStuffs(this.gameObject.transform, obstaclesSO.ObstacleForce);
+               
             }
         }
     }

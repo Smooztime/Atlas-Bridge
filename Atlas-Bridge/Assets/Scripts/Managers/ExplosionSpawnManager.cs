@@ -53,6 +53,7 @@ public class ExplosionSpawnManager : MonoBehaviour
                         {
                             pos = hit.point;
                             _canSpawn = true;
+                            SoundManagerNew.Instance.PlaySFX("explosionSfx");
                         }
                         else
                         {

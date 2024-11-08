@@ -39,11 +39,6 @@ public class GameManager : Singleton<GameManager>
     }
 
 
-    public void GameOver()
-    {
-        Debug.Log("game over");
-    }
-
     public void GameRestart(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -68,12 +63,14 @@ public class GameManager : Singleton<GameManager>
         Debug.Log(winnerName);
         isGameOver =true;
         gameUI.SetWinMenu();
+        SoundManagerNew.Instance.PlaySFX("WinSfx");
     }
     public void WinAccordingBlocks(string name)
     {
         name = winnerName;
         isGameOver = true;
         gameUI.SetWinMenu();
+        SoundManagerNew.Instance.PlaySFX("WinSfx");
     }
 
     public void CheckBlockNumber()
@@ -102,13 +99,13 @@ public class GameManager : Singleton<GameManager>
     {
 
         redBlocks.Add(block);
-
+        SoundManagerNew.Instance.PlaySFX("hitSfx");
     }
 
     public void RemoveRedBlock(Block block)
     {
         redBlocks.Remove(block);
-       
+        SoundManagerNew.Instance.PlaySFX("hitSfx");
     }
 
     public void AddBlueBlock(Block block)

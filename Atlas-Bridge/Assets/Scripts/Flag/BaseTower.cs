@@ -40,6 +40,7 @@ public class BaseTower : MonoBehaviour
                     {
                         Debug.Log("before:" +flags.Length);
                         SetFlagPosition(flag.gameObject);
+                        SoundManagerNew.Instance.PlaySFX("AchieveSfx1");
                         removeFlag = flag;
                         player.RemoveFlag(removeFlag);
                         LightBlueTower(blue, player);
@@ -56,6 +57,7 @@ public class BaseTower : MonoBehaviour
                     {
                         Debug.Log("before:" + flags.Length);
                         SetFlagPosition(flag.gameObject);
+                        SoundManagerNew.Instance.PlaySFX("AchieveSfx1");
                         removeFlag =flag;
                         player.RemoveFlag(removeFlag);
                         LightBlueTower(red,player);

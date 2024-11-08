@@ -18,6 +18,7 @@ public class SpawnPlayer : MonoBehaviour
     public void PlayerDead()
     {
         _controller._isControllerActive = false;
+        SoundManagerNew.Instance.PlaySFX("DieSfx");
         StartCoroutine(PlayerRespwan());
     }
 
