@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class WaterDropSpawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.gameObject.GetComponent<PlayerController>())
+        {
+            var _flag = other.gameObject.GetComponentsInChildren<Flag>();
+            if (_flag != null)
+            {
+                foreach (var flag in _flag)
+                {
+                    flag.FlagDropAtPosition(this.transform);
+                    Debug.Log("flag will drop here");
+                }
+            }
+        }
+            
     }
 }
