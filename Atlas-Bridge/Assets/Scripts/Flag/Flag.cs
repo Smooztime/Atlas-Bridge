@@ -4,6 +4,7 @@ using UnityEngine;
 public class Flag : MonoBehaviour
 {
     [SerializeField] private FlagType flagType;
+    [SerializeField] private Light _light;
     private FlagHolder flagHolder;
     private bool canBePickedUp = true;
     [SerializeField] private float pickupCooldown = 3f;
@@ -50,6 +51,7 @@ public class Flag : MonoBehaviour
     }
     private void FlagBePickedUP()
     {
+        _light.enabled = false;
         rb.freezeRotation = false;
         rb.isKinematic = true;
         rb.detectCollisions = false;
@@ -75,6 +77,7 @@ public class Flag : MonoBehaviour
 
     public void FlagFallOnGround()
     {
+        _light.enabled = true;
         _isPickedUp = false;
         rb.freezeRotation = true;
         rb.isKinematic = false;
@@ -102,6 +105,7 @@ public class Flag : MonoBehaviour
 
     public void FlagDropOnGroundAfterDrowned()
     {
+        _light.enabled = true;
         _isPickedUp = false;
         rb.freezeRotation = true;
         rb.isKinematic = false;

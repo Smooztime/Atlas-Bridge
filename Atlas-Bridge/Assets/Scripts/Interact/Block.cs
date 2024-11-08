@@ -34,12 +34,14 @@ public class Block : MonoBehaviour,IInteractable
                     GameManager.Instance.blueBlocks.Add(this);
                     render.material = blue;
                     isBlue = true;
+                    isRed = false;
                     GameManager.Instance.RemoveRedBlock(this); 
                 }
                 else
                 {
                     render.material = blue;
                     isBlue = true;
+                    isRed = false;
                     GameManager.Instance.blueBlocks.Add(this);
                     Debug.Log("blue" + GameManager.Instance.blueBlocks.Count);
                 }
@@ -55,12 +57,14 @@ public class Block : MonoBehaviour,IInteractable
                     GameManager.Instance.redBlocks.Add(this);
                     render.material = red;
                     isRed = true;
+                    isBlue = false;
                     GameManager.Instance.RemoveBlueBlock(this);
                 }
                 else
                 {
                     render.material = red;
                     isRed = true;
+                    isBlue = false;
                     GameManager.Instance.redBlocks.Add(this);
                 }
             }
