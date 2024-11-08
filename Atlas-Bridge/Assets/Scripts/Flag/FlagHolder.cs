@@ -41,6 +41,7 @@ public class FlagHolder : MonoBehaviour
     public void AddFlag(Flag flag)
     {
         flagsHolding.Add(flag);
+        SoundManagerNew.Instance.PlaySFX("AchieveSfx");
         Debug.Log("AddFlag hold flag:" + flagsHolding.Count);
         isHoldingFlag = true;
 

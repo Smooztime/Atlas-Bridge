@@ -186,8 +186,8 @@ GameObject:
   - component: {fileID: 8986794223884137598}
   - component: {fileID: 3697642266531509778}
   - component: {fileID: 8355412098723288724}
-  - component: {fileID: 4076047757271758164}
-  - component: {fileID: 2636025345853928753}
+  - component: {fileID: 1497412122780000779}
+  - component: {fileID: 7798703599894972965}
   m_Layer: 3
   m_Name: Red_Player
   m_TagString: Untagged
@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: 621244d69fd156544ae4477dbb9f5f6c, type: 2}
+  _anim: {fileID: 2491239049319059081}
 --- !u!114 &7351540920760205816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +324,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!136 &4076047757271758164
+--- !u!136 &1497412122780000779
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,11 +343,11 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.44
+  m_Radius: 0.24
+  m_Height: 1.03
   m_Direction: 1
-  m_Center: {x: 0, y: 0.6, z: 0}
---- !u!136 &2636025345853928753
+  m_Center: {x: 0, y: 0.49, z: 0}
+--- !u!136 &7798703599894972965
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,10 +366,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.75
-  m_Height: 2
+  m_Radius: 0.28
+  m_Height: 1.03
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.49, z: 0}
 --- !u!1001 &6593172199730443106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -421,11 +422,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8785695600606150123, guid: e1e9a8d016c31d44eb7c47edadfc7e41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785695600606150123, guid: e1e9a8d016c31d44eb7c47edadfc7e41, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e9a8d016c31d44eb7c47edadfc7e41, type: 3}
+--- !u!95 &2491239049319059081 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8785695600606150123, guid: e1e9a8d016c31d44eb7c47edadfc7e41, type: 3}
+  m_PrefabInstance: {fileID: 6593172199730443106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8390914620176684275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3390404908764800913, guid: e1e9a8d016c31d44eb7c47edadfc7e41, type: 3}

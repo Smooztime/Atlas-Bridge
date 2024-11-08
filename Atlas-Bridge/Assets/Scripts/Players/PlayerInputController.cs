@@ -1,22 +1,23 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class PlayerInputController : MonoBehaviour
 {
     [SerializeField] private string mapName;
     [SerializeField] InputActionAsset actionAsset;
-  
+
 
     private PlayerController _playerController;
     private InputActionMap playerCtrl;
+    private InputActionMap _esc;
 
     public string MapName => mapName;
-    
+
     private void Awake()
     {
         _playerController = GetComponent<PlayerController>();
         playerCtrl = actionAsset.FindActionMap(mapName);
+        _esc = actionAsset.FindActionMap("ESC");
     }
 
     private void OnEnable()
@@ -24,10 +25,11 @@ public class PlayerInputController : MonoBehaviour
         playerCtrl.Enable();
         playerCtrl.FindAction("Movement").performed += ctx => _playerController.MovementInput(ctx.ReadValue<float>());
         playerCtrl.FindAction("Movement").canceled += ctx => _playerController.OnMoveReleased();
-      
-        actionAsset.FindActionMap("ESC").FindAction("Pause").performed += ctx => GameManager.Instance.PauseGame();
-        
-       
+
+        _esc.Enable();
+        _esc.FindAction("Pause").performed += ctx => _playerController.OnGamePause();
+
+
     }
 
     private void OnDisable()

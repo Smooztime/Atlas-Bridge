@@ -1,16 +1,15 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using static Unity.Collections.AllocatorManager;
 
 public class GameManager : Singleton<GameManager>
 {
-   
+    [Header("---UI---")]
+    [SerializeField] private GameObject winMenuPerfab;
+    [SerializeField] private GameObject pauseMenuPerfab;
+    [SerializeField] public TMP_Text winnerNameTMP;
+
     [Header("Win set up 1 situation")]
 
     [SerializeField] string redPlayerName;
@@ -22,7 +21,8 @@ public class GameManager : Singleton<GameManager>
     public List<Block> redBlocks = new List<Block>();
     public List<Block> blueBlocks = new List<Block>();
     public bool isGameOver = false;
-    public bool isBlockHit= false;
+    public bool isBlockHit = false;
+    public bool _isPause { get; set; }
 
 
 
@@ -32,16 +32,13 @@ public class GameManager : Singleton<GameManager>
         winnerName = "";
         redBlocks.Clear();
         blueBlocks.Clear();
+        winMenuPerfab.SetActive(false);
+        pauseMenuPerfab.SetActive(false);
+        _isPause = false;
     }
     private void InitializeUI()
     {
         gameUI.SetMenuWhenLoad();
-    }
-
-
-    public void GameOver()
-    {
-        Debug.Log("game over");
     }
 
     public void GameRestart(string sceneName)
@@ -53,27 +50,38 @@ public class GameManager : Singleton<GameManager>
     {
         if (SceneManager.GetActiveScene().name != "Menu")
         {
-            gameUI.SetPauseMenu();
-            Time.timeScale = 0f;
+            if (_isPause)
+            {
+                Time.timeScale = 0f;
+                pauseMenuPerfab.SetActive(true);
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                pauseMenuPerfab.SetActive(false);
+            }
         }
         else
         {
             return;
         }
- 
+
     }
     public void WinHappen(FlagHolder player)
     {
+        Time.timeScale = 0f;
         winnerName = player.playerName;
         Debug.Log(winnerName);
-        isGameOver =true;
-        gameUI.SetWinMenu();
+        isGameOver = true;
+        winMenuPerfab.SetActive(true);
+        SoundManagerNew.Instance.PlaySFX("WinSfx");
     }
     public void WinAccordingBlocks(string name)
     {
         name = winnerName;
         isGameOver = true;
-        gameUI.SetWinMenu();
+        winMenuPerfab.SetActive(true);
+        SoundManagerNew.Instance.PlaySFX("WinSfx");
     }
 
     public void CheckBlockNumber()
@@ -102,13 +110,13 @@ public class GameManager : Singleton<GameManager>
     {
 
         redBlocks.Add(block);
-
+        SoundManagerNew.Instance.PlaySFX("hitSfx");
     }
 
     public void RemoveRedBlock(Block block)
     {
         redBlocks.Remove(block);
-       
+        SoundManagerNew.Instance.PlaySFX("hitSfx");
     }
 
     public void AddBlueBlock(Block block)
@@ -120,7 +128,7 @@ public class GameManager : Singleton<GameManager>
     public void RemoveBlueBlock(Block block)
     {
         blueBlocks.Remove(block);
-        
+
     }
 
 }
