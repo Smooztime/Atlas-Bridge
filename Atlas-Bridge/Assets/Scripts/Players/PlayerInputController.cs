@@ -1,19 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class PlayerInputController : MonoBehaviour
 {
     [SerializeField] private string mapName;
     [SerializeField] InputActionAsset actionAsset;
-  
+
 
     private PlayerController _playerController;
     private InputActionMap playerCtrl;
     private InputActionMap _esc;
 
     public string MapName => mapName;
-    
+
     private void Awake()
     {
         _playerController = GetComponent<PlayerController>();
@@ -29,8 +28,8 @@ public class PlayerInputController : MonoBehaviour
 
         _esc.Enable();
         _esc.FindAction("Pause").performed += ctx => _playerController.OnGamePause();
-        
-       
+
+
     }
 
     private void OnDisable()

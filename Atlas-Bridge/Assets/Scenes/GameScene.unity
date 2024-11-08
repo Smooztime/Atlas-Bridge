@@ -12081,6 +12081,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2198234652055853218, guid: b00554e825c364940974aad7f1dae3d9, type: 3}
+      propertyPath: _light
+      value: 
+      objectReference: {fileID: 2109261057}
     - target: {fileID: 5665495112671163757, guid: b00554e825c364940974aad7f1dae3d9, type: 3}
       propertyPath: m_Name
       value: FlagBlue
@@ -13500,6 +13504,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3395577320223530341, guid: e983ebde0bcf5394a893557a85882c06, type: 3}
+      propertyPath: _light
+      value: 
+      objectReference: {fileID: 65064819}
     - target: {fileID: 3776560201948173641, guid: e983ebde0bcf5394a893557a85882c06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.68

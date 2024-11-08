@@ -1,6 +1,4 @@
 using System.Collections;
-using UnityEditor.Build;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,12 +6,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerStatsSO playerStats;
     [SerializeField] private Animator _anim;
 
-    private Rigidbody rb; 
+    private Rigidbody rb;
     private float _movement;
     private Transform _playerDir;
     private bool _rotateChange;
     private bool _isPause;
-    
+
     public bool _isKnockBack { get; set; }
     public bool _isControllerActive { get; set; }
     public Rigidbody RB => rb;
