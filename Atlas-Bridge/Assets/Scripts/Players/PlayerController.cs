@@ -5,15 +5,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] PlayerStatsSO playerStats;
+    [SerializeField] private PlayerStatsSO playerStats;
+    [SerializeField] private Animator _anim;
 
     private Rigidbody rb; 
     private float _movement;
     private Transform _playerDir;
     private bool _rotateChange;
+    
     public bool _isKnockBack { get; set; }
     public bool _isControllerActive { get; set; }
     public Rigidbody RB => rb;
+    public Animator Anim => _anim;
     public PlayerStatsSO PlayerState => playerStats;
 
     private void Awake()
@@ -41,6 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_movement == 1 && _isControllerActive == true)
         {
+            _anim.SetBool("IsRunning", true);
             rb.angularVelocity = Vector3.zero;
             rb.linearVelocity = transform.forward * playerStats.MovementSpeed;
         }
@@ -48,6 +52,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnMoveReleased()
     {
+        _anim.SetBool("IsRunning", false);
         _movement = 0;
         _rotateChange = !_rotateChange;
     }

@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 3697642266531509778}
   - component: {fileID: 8355412098723288724}
   - component: {fileID: 4076047757271758164}
-  - component: {fileID: 2636025345853928753}
+  - component: {fileID: 3828039837472486846}
   m_Layer: 3
   m_Name: Blue_Player
   m_TagString: Untagged
@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: 621244d69fd156544ae4477dbb9f5f6c, type: 2}
+  _anim: {fileID: 2257099764796572966}
 --- !u!114 &7351540920760205816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,11 +343,11 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.36
+  m_Radius: 0.19
+  m_Height: 1.03
   m_Direction: 1
   m_Center: {x: 0, y: 0.49, z: 0}
---- !u!136 &2636025345853928753
+--- !u!136 &3828039837472486846
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,10 +366,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.75
-  m_Height: 2
+  m_Radius: 0.22
+  m_Height: 1.03
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.49, z: 0}
 --- !u!1001 &5257659173368547802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -421,11 +422,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Valkyrie
       objectReference: {fileID: 0}
+    - target: {fileID: 6315209335788375292, guid: 1a87370f1a97ce4449fbfe4f06c76af3, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a87370f1a97ce4449fbfe4f06c76af3, type: 3}
+--- !u!95 &2257099764796572966 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6315209335788375292, guid: 1a87370f1a97ce4449fbfe4f06c76af3, type: 3}
+  m_PrefabInstance: {fileID: 5257659173368547802}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5310580223051079516 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 91212989005846150, guid: 1a87370f1a97ce4449fbfe4f06c76af3, type: 3}

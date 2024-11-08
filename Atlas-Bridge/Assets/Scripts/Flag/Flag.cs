@@ -11,6 +11,7 @@ public class Flag : MonoBehaviour
     private bool _isPickedUp = false;
     private Transform _backPosition;
     private Rigidbody rb;
+    private Transform _dropPosition;
 
     private void Awake()
     {
@@ -82,7 +83,7 @@ public class Flag : MonoBehaviour
         this.transform.SetParent(null);
         if (flagHolder.flagsHolding.Count == 2)
         {
-            this.transform.position = new Vector3(_backPosition.position.x + 0.5f, _backPosition.position.y, _backPosition.position.z);
+            this.transform.position = new Vector3(_backPosition.position.x, _backPosition.position.y, _backPosition.position.z);
             this.transform.rotation = Quaternion.Euler(0f, 90f, 90f);
         }
         else if (flagHolder.flagsHolding.Count == 1)
@@ -94,4 +95,30 @@ public class Flag : MonoBehaviour
         StartCoroutine(PickUpCooldown());
     }
 
+    public void FlagDropAtPosition(Transform pos)
+    {
+        _dropPosition = pos;
+    }
+
+    public void FlagDropOnGroundAfterDrowned()
+    {
+        _isPickedUp = false;
+        rb.freezeRotation = true;
+        rb.isKinematic = false;
+        rb.detectCollisions = true;
+
+        this.transform.SetParent(null);
+        if (flagHolder.flagsHolding.Count == 2)
+        {
+            this.transform.position = new Vector3(_dropPosition.position.x, _dropPosition.position.y, _backPosition.position.z);
+            this.transform.rotation = Quaternion.Euler(0f, 90f, 90f);
+        }
+        else if (flagHolder.flagsHolding.Count == 1)
+        {
+            this.transform.position = new Vector3(_dropPosition.position.x, _dropPosition.position.y, _backPosition.position.z);
+            this.transform.rotation = Quaternion.Euler(180f, 90f, 90f);
+        }
+        canBePickedUp = false;
+        StartCoroutine(PickUpCooldown());
+    }
 }
