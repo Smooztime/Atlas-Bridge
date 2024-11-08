@@ -6,6 +6,7 @@ public class WaterDrowning : MonoBehaviour
     {
         if(other.gameObject.GetComponent<PlayerController>())
         {
+            other.gameObject.GetComponent<PlayerController>()._isDrowning = true;
             other.gameObject.GetComponent<SpawnPlayer>().PlayerDrowning();
         }
     }

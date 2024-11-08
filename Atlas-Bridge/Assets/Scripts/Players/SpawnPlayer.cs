@@ -19,12 +19,12 @@ public class SpawnPlayer : MonoBehaviour
     {
         _controller._isControllerActive = false;
         SoundManagerNew.Instance.PlaySFX("DieSfx");
-        StartCoroutine(PlayerRespwan());
+        if(_controller._isDrowning == false) StartCoroutine(PlayerRespwan());
     }
 
     private IEnumerator PlayerRespwan()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
         _flag = GetComponentsInChildren<Flag>();
         foreach (Flag flag in _flag)
@@ -99,5 +99,6 @@ public class SpawnPlayer : MonoBehaviour
 
         _controller._isControllerActive = true;
         _controller._isKnockBack = false;
+        _controller._isDrowning = false;
     }
 }

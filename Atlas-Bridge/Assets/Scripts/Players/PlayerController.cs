@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private bool _rotateChange;
     private bool _isPause;
 
+    public bool _isDrowning { get; set; }
+
     public bool _isKnockBack { get; set; }
     public bool _isControllerActive { get; set; }
     public Rigidbody RB => rb;
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour
             if (_anim != null)
             {
                 _anim.SetBool("IsRunning", true);
+                _anim.SetBool("IsKnockBack", false);
             }
             rb.angularVelocity = Vector3.zero;
             rb.linearVelocity = transform.forward * playerStats.MovementSpeed;
@@ -57,15 +60,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnMoveReleased()
     {
-        if (_isControllerActive == true && GameManager.Instance.isGameOver == false)
+        if (_anim != null)
         {
-            if(_anim != null)
-            {
-                _anim.SetBool("IsRunning", false);
-            }
-            _movement = 0;
-            _rotateChange = !_rotateChange;
+            _anim.SetBool("IsRunning", false);
         }
+        _movement = 0;
+        _rotateChange = !_rotateChange;
     }
 
     public void OnGamePause()

@@ -19,7 +19,6 @@ public class ExplosionSpawnManager : MonoBehaviour
     private bool _canSpawn;
     private Vector3 pos;
     private GameObject _explodsionSpawn;
-    private bool _isPlant = false;
 
     private void Start()
     {
