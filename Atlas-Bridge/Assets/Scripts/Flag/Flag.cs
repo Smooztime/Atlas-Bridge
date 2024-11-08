@@ -11,6 +11,7 @@ public class Flag : MonoBehaviour
     private bool _isPickedUp = false;
     private Transform _backPosition;
     private Rigidbody rb;
+    private Transform _dropPosition;
 
     private void Awake()
     {
@@ -94,4 +95,8 @@ public class Flag : MonoBehaviour
         StartCoroutine(PickUpCooldown());
     }
 
+    public void FlagDropAtPosition(Transform pos)
+    {
+        _dropPosition = pos;
+    }
 }
