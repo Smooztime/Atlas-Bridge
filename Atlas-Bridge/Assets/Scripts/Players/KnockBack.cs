@@ -51,7 +51,11 @@ public class KnockBack : MonoBehaviour
 
     public void KnockBackFromStuffs(Transform obstacleTransform, float obstacleForce)
     {
-        _controller.Anim.SetBool("IsKnockBack", true);
+        if (_controller.Anim != null)
+        {
+            _controller.Anim.SetBool("IsKnockBack", true);
+        }
+        
         _controller._isKnockBack = true;
         Vector3 objDirection = (transform.position - obstacleTransform.transform.position).normalized;
         _controller.RB.AddForce(objDirection * _controller.RB.linearVelocity.normalized.magnitude * obstacleForce, ForceMode.Impulse);
@@ -71,7 +75,10 @@ public class KnockBack : MonoBehaviour
             {
                 if (_controller.RB.linearVelocity.normalized.magnitude > opponentCtrl.RB.linearVelocity.normalized.magnitude)
                 {
-                    opponentCtrl.Anim.SetBool("IsKnockBack", true);
+                    if (_controller.Anim != null)
+                    {
+                        _controller.Anim.SetBool("IsKnockBack", true);
+                    }
                     opponentCtrl._isKnockBack = true;
                     Debug.Log(_input.MapName + "is POWERFUL!!");
                     Vector3 OpponentDirection = (collision.transform.position - transform.position).normalized;
@@ -81,7 +88,10 @@ public class KnockBack : MonoBehaviour
                 }
                 else if (_controller.RB.linearVelocity.normalized.magnitude == opponentCtrl.RB.linearVelocity.normalized.magnitude)
                 {
-                    opponentCtrl.Anim.SetBool("IsKnockBack", true);
+                    if (_controller.Anim != null)
+                    {
+                        _controller.Anim.SetBool("IsKnockBack", true);
+                    }
                     opponentCtrl._isKnockBack = true;
                     Debug.Log("We are kissing for each other");
                     Vector3 OpponentDirection = (collision.transform.position - transform.position).normalized;

@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        Debug.Log("start game");
     }
 
     private void Start()
@@ -42,9 +44,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnMove()
     {
-        if (_movement == 1 && _isControllerActive == true)
+        if (_movement == 1 && _isControllerActive == true && GameManager.Instance.isGameOver == false)
         {
-            _anim.SetBool("IsRunning", true);
+            if (_anim != null)
+            {
+                _anim.SetBool("IsRunning", true);
+            }
             rb.angularVelocity = Vector3.zero;
             rb.linearVelocity = transform.forward * playerStats.MovementSpeed;
         }
@@ -52,9 +57,15 @@ public class PlayerController : MonoBehaviour
 
     public void OnMoveReleased()
     {
-        _anim.SetBool("IsRunning", false);
-        _movement = 0;
-        _rotateChange = !_rotateChange;
+        if (_isControllerActive == true && GameManager.Instance.isGameOver == false)
+        {
+            if(_anim != null)
+            {
+                _anim.SetBool("IsRunning", false);
+            }
+            _movement = 0;
+            _rotateChange = !_rotateChange;
+        }
     }
 
     public void OnGamePause()

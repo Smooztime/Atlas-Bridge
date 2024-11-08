@@ -25,7 +25,10 @@ public class GameManager : Singleton<GameManager>
     public bool _isPause { get; set; }
 
 
-
+    private void Awake()
+    {
+        Time.timeScale = 1.0f;
+    }
 
     private void Start()
     {
@@ -44,7 +47,6 @@ public class GameManager : Singleton<GameManager>
     public void GameRestart(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-        Time.timeScale = 1.0f;
     }
     public void PauseGame()
     {
@@ -74,14 +76,15 @@ public class GameManager : Singleton<GameManager>
         Debug.Log(winnerName);
         isGameOver = true;
         winMenuPerfab.SetActive(true);
-        SoundManagerNew.Instance.PlaySFX("WinSfx");
+        SoundManagerNew.Instance.PlaySFX("WinSfx", 0.05f);
     }
     public void WinAccordingBlocks(string name)
     {
+        Time.timeScale = 0f;
         name = winnerName;
         isGameOver = true;
         winMenuPerfab.SetActive(true);
-        SoundManagerNew.Instance.PlaySFX("WinSfx");
+        SoundManagerNew.Instance.PlaySFX("WinSfx", 0.05f);
     }
 
     public void CheckBlockNumber()

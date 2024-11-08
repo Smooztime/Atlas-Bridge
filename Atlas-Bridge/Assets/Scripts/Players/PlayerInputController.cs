@@ -26,15 +26,19 @@ public class PlayerInputController : MonoBehaviour
         playerCtrl.FindAction("Movement").performed += ctx => _playerController.MovementInput(ctx.ReadValue<float>());
         playerCtrl.FindAction("Movement").canceled += ctx => _playerController.OnMoveReleased();
 
-        _esc.Enable();
         _esc.FindAction("Pause").performed += ctx => _playerController.OnGamePause();
-
-
+        _esc.Enable();
     }
 
     private void OnDisable()
     {
+        playerCtrl.FindAction("Movement").performed -= ctx => _playerController.MovementInput(ctx.ReadValue<float>());
+        playerCtrl.FindAction("Movement").canceled -= ctx => _playerController.OnMoveReleased();
         playerCtrl.Disable();
+
+        _esc.FindAction("Pause").performed -= ctx => _playerController.OnGamePause();
+        _esc.Disable();
+        
     }
 
     private void ESC_Performed(InputAction.CallbackContext obj)

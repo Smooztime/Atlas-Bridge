@@ -47,4 +47,21 @@ public class SoundManagerNew : Singleton<SoundManagerNew>
             Debug.Log("SFX not found");
         }
     }
+
+    public void PlaySFX(string name, float volume)
+    {
+        Sound s = Array.Find(sfx, x => x.name == name);
+
+        if (s != null)
+        {
+            float originalBgmVolume = bgmSource.volume;
+            sfxSource.volume = sfxVolume;
+            sfxSource.PlayOneShot(s.clip);
+            bgmSource.volume = volume;
+        }
+        else
+        {
+            Debug.Log("SFX not found");
+        }
+    }
 }
