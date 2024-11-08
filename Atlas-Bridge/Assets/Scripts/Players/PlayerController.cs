@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private float _movement;
     private Transform _playerDir;
     private bool _rotateChange;
+    private bool _isPause;
     
     public bool _isKnockBack { get; set; }
     public bool _isControllerActive { get; set; }
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _isControllerActive = true;
+        _isPause = false;
     }
 
     private void FixedUpdate()
@@ -57,7 +59,13 @@ public class PlayerController : MonoBehaviour
         _rotateChange = !_rotateChange;
     }
 
-   
+    public void OnGamePause()
+    {
+        _isPause = !_isPause;
+        GameManager.Instance._isPause = _isPause;
+        GameManager.Instance.PauseGame();
+        Debug.Log(_isPause);
+    }
 
     private void RotatePlayer()
     {

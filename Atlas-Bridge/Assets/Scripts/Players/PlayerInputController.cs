@@ -10,6 +10,7 @@ public class PlayerInputController : MonoBehaviour
 
     private PlayerController _playerController;
     private InputActionMap playerCtrl;
+    private InputActionMap _esc;
 
     public string MapName => mapName;
     
@@ -17,6 +18,7 @@ public class PlayerInputController : MonoBehaviour
     {
         _playerController = GetComponent<PlayerController>();
         playerCtrl = actionAsset.FindActionMap(mapName);
+        _esc = actionAsset.FindActionMap("ESC");
     }
 
     private void OnEnable()
@@ -24,8 +26,9 @@ public class PlayerInputController : MonoBehaviour
         playerCtrl.Enable();
         playerCtrl.FindAction("Movement").performed += ctx => _playerController.MovementInput(ctx.ReadValue<float>());
         playerCtrl.FindAction("Movement").canceled += ctx => _playerController.OnMoveReleased();
-      
-        actionAsset.FindActionMap("ESC").FindAction("Pause").performed += ctx => GameManager.Instance.PauseGame();
+
+        _esc.Enable();
+        _esc.FindAction("Pause").performed += ctx => _playerController.OnGamePause();
         
        
     }
