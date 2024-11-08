@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: 1.13
-  viewAngle: 45
+  viewAngle: 60
   viewSpectrumIterator: 1
 --- !u!114 &7648106778397785194
 MonoBehaviour:
@@ -343,7 +343,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.24
+  m_Radius: 0.32
   m_Height: 1.03
   m_Direction: 1
   m_Center: {x: 0, y: 0.49, z: 0}
@@ -366,7 +366,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.28
+  m_Radius: 0.35
   m_Height: 1.03
   m_Direction: 1
   m_Center: {x: 0, y: 0.49, z: 0}
