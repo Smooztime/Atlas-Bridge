@@ -1,12 +1,7 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using static Unity.Collections.AllocatorManager;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -26,7 +21,7 @@ public class GameManager : Singleton<GameManager>
     public List<Block> redBlocks = new List<Block>();
     public List<Block> blueBlocks = new List<Block>();
     public bool isGameOver = false;
-    public bool isBlockHit= false;
+    public bool isBlockHit = false;
     public bool _isPause { get; set; }
 
 
@@ -55,7 +50,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (SceneManager.GetActiveScene().name != "Menu")
         {
-            if(_isPause)
+            if (_isPause)
             {
                 Time.timeScale = 0f;
                 pauseMenuPerfab.SetActive(true);
@@ -70,14 +65,14 @@ public class GameManager : Singleton<GameManager>
         {
             return;
         }
- 
+
     }
     public void WinHappen(FlagHolder player)
     {
         Time.timeScale = 0f;
         winnerName = player.playerName;
         Debug.Log(winnerName);
-        isGameOver =true;
+        isGameOver = true;
         winMenuPerfab.SetActive(true);
         SoundManagerNew.Instance.PlaySFX("WinSfx");
     }
@@ -133,7 +128,7 @@ public class GameManager : Singleton<GameManager>
     public void RemoveBlueBlock(Block block)
     {
         blueBlocks.Remove(block);
-        
+
     }
 
 }
